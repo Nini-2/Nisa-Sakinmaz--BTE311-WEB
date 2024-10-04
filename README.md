@@ -11,6 +11,8 @@
             background-color: #dfdfdf;
             margin: 20px;
             padding: 20px;
+            font-size: 18px;
+            line-height: 1.6;
         }
         nav {
             margin-bottom: 20px;
@@ -26,6 +28,12 @@
             padding: 15px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Başlıklara gölge */
+        }
+        p {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Paragraflara gölge */
         }
         img {
             max-width: 100%;

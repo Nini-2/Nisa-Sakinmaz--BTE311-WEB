@@ -20,7 +20,7 @@
         nav a {
             margin-right: 15px;
             text-decoration: none;
-            color: #000000;
+            color: #4B3871;
         }
         section {
             margin-bottom: 40px;

@@ -4,12 +4,12 @@
     <title>Bte311 Hafta2- Masal Kitabı- Nisa Sakınmaz</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masal Hikayesi</title>
+    <title>Masallar</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
-            margin: 0;
+            background-color: #dfdfdf;
+            margin: 20px;
             padding: 20px;
         }
         nav {
@@ -18,7 +18,7 @@
         nav a {
             margin-right: 15px;
             text-decoration: none;
-            color: #007BFF;
+            color: #000000;
         }
         section {
             margin-bottom: 40px;
@@ -44,21 +44,31 @@
 </nav>
 
 <section id="bolum1">
-    <h2>Bölüm 1: Ormanın Derinlikleri</h2>
+    <h2>Bölüm 1: Karga ile Tilki </h2>
     <img src="img/orman.jpg" alt="Ormanın Derinlikleri">
-    <p>Bir zamanlar, büyük ve gizemli bir ormanın derinliklerinde bir tavşan yaşardı. Her gün yeni maceralara atılmayı severdi.</p>
+    <p>Bir varmış bir yokmuş; bir zamanlar bir ağacın dalında neşeyle dans eden bir karga varmış. Karga çok mutluymuş, çünkü ağzında kocaman bir peynir parçası varmış, karga bulduğu peynirden dolayı çok ama çok mutluymuş. Ağzındaki kocaman peyniri tam midesine indirmek üzereymiş ki, ordan geçmekte olan bir tilki kargayı görmüş. Kurnaz tilki kargayı kandırıp, peyniri alabilmek için bir plan yapmış ve kargaya demiş ki ‘Karga kardeş, merhaba, ne kadar güzelsin, sesin de çok güzelmiş, herkes bunu konuşuyor, ben de bunca yolu senin sesini duyabilmek için geldim’ demiş. Bu güzel sözleri duyan karga hemen kendini kanıtlama sevdasına düşmüş ve ‘Ben senin için güzel bir şarkı söylerim’ demiş. Bunu söylemek için ağzını açar açmaz, kocaman peynir parçasını da ağzından düşürmüş. Kurnaz tilki hemen düşen peynir parçasını alıp, kaçmış. Eli de, karnı da boş kalan karga da bir daha güzel sözlere inanıp, elindekini kaptırmaması gerektiğini anlamış.</p>
 </section>
 
 <section id="bolum2">
-    <h2>Bölüm 2: Arkadaşlık</h2>
+    <h2>Bölüm 2: Aslan ile Fare </h2>
     <img src="img/arkadaslik.jpg" alt="Arkadaşlık">
-    <p>Tavşan, bir gün yolda bir tilki ile karşılaştı. Başta korksa da, tilkinin dost canlısı olduğunu görünce arkadaş oldular.</p>
+    <p>Ormanlar kralı aslan ormanda bir gün avlanmaktan gelmiş, yatmış uyuyormuş. Minik bir fare aslanın üzerinde dolaşmaya başlamış.Aslan sinirlenerek uyanıp fareyi yakalayış. Tam öldüreceği sırada fare yalvarmış:
+-Ne olur beni bırak! Gün olur benimda sana bir iyiliğim dokunur, demiş.
+Aslan farenin bu sözlerine gülerek:
+-Sen küçük bir faresin, bana ne iyiliğin dokunur ki deyip,fareye acımış ve fareyi bırakmış.
+Fare sevinerek oradan uzaklasmış
+
+Aradan zaman geçmiş, Aslan birgün avcıların kurduğu tuzağa yakalanmış.
+Aslan çırpınmış, bağırmış ama tuzaktan bir türlü kurtulamamış. Oradan geçmekte olan minik fare aslanın bu durumunu görmüş. Hemen dişleri ile tuzağın iplerini kemirerek kesmiş. Aslanı tuzaktan kurtarmış.
+Fare aslana:
+– Beni küçük diye beğenmiyordun. Bak. senin canını kurtardım, demiş.
+Aslan, böylece yapılan bir iyiliğin karşılıksız kalmayacağını anlamış.</p>
 </section>
 
 <section id="bolum3">
-    <h2>Bölüm 3: Tehlike Anı</h2>
+    <h2>Bölüm 3: Kurabiye Hırsızı </h2>
     <img src="img/tehlike.jpg" alt="Tehlike Anı">
-    <p>Bir akşam, ormanda bir avcı belirdi. Tavşan ve tilki, birlikte saklanarak bu tehlikeden kurtulmayı başardılar.</p>
+    <p>Bir gece genç bir kadın havaalanında uçağının kalkmasını bekliyordu. Daha epeyce zaman vardı. Havaalanındaki dükkandan bir kitap ve bir paket de kurabiye alıp, kendisine oturacak bir yer buldu ve kitabını okumaya başladı. Kendisini okumaya öyle kaptırmıştı ki, yanında oturan adamın aralarındaki paketten birer birer kurabiye aldığını paket yarıya geldiğinde fark edebildi. Görmezden gelmeye karar verdi. Gözü bir yandan da saatteydi, "kurabiye hırsızı" yavaş yavaş kurabiyelerini tüketirken. Her kurabiyeye uzandığında adam da uzatıyordu elini. Sonunda pakette tek bir kurabiye kalınca " Bakalım şimdi ne yapacak?" dedi kendi kendine. Adam yüzünde bir gülümsemeyle son kurabiyeyi aldı, ikiye böldü. Yarısını ağzına atıp, diğer yarısını kadına uzattı. "Aman Allah'ım , ne cüretkar ve kaba bir adam" diye düşündü kadın. Hayatında bu kadar sinirlendiğini hatırlamıyordu. Uçağının kalkacağı anons edildiğinde eşyalarını topladı ve dönüp "kurabiye hırsızı"na bir kere bile bakmadan, çıkış kapısına yürüdü. Uçağa bindi, koltuğuna oturdu. Bitmek üzere olan kitabını almak için çantasını açtı ve çantanın içinde duran bir paket kurabiyeyi gördü. Adamın onunla kurabiyelerini paylaştığını, özür dilemek için çok geç olduğunu anladı üzüntüyle. Kaba ve cüretkar olan "kurabiye hırsızı" asıl kendisiydi. </p>
 </section>
 
 <section id="bolum4">

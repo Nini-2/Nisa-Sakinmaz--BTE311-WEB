@@ -1,7 +1,116 @@
 <!DOCTYPE html>
 <html lang="tr">
-  <head>
-    >meta charset="UTF-8>
-    <meta name="viewport"
-      content="width=device-
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <!-- Sayfanın karakter setini belirtiyoruz, Türkçe karakterler için UTF-8 kullanıyoruz. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sayfanın mobil cihazlarda düzgün görünmesi için viewport ayarlarını yapıyoruz. -->
+    <title>Haftalık Ders Programı</title>
+    <!-- Sayfanın başlık kısmı, tarayıcı sekmesinde görünecek olan metin. -->
+    <style>
+        /* Sayfanın stil ayarlarını yapıyoruz */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Haftalık Ders Programı</h1>
+    <!-- Sayfa başlığını büyük bir başlık olarak yazıyoruz. -->
+
+    <table>
+        <!-- Tablo oluşturuyoruz. -->
+        <thead>
+            <!-- Tablo başlık kısmını belirtiyoruz. -->
+            <tr>
+                <!-- Bir satır oluşturuyoruz. -->
+                <th>Gün</th>
+                <!-- İlk sütun için başlık, bu sütunda günler olacak. -->
+                <th>1. Ders</th>
+                <!-- 1. ders saati için başlık. -->
+                <th>2. Ders</th>
+                <!-- 2. ders saati için başlık. -->
+                <th>3. Ders</th>
+                <!-- 3. ders saati için başlık. -->
+                <th>4. Ders</th>
+                <!-- 4. ders saati için başlık. -->
+                <th>5. Ders</th>
+                <!-- 5. ders saati için başlık. -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Tablo gövdesi, veriler burada olacak. -->
+            <tr>
+                <td>Pazartesi</td>
+                <!-- İlk sütun gün adı. -->
+                <td>Matematik</td>
+                <!-- 1. ders: Matematik -->
+                <td>Türkçe</td>
+                <!-- 2. ders: Türkçe -->
+                <td>Fen Bilimleri</td>
+                <!-- 3. ders: Fen Bilimleri -->
+                <td>Sosyal Bilgiler</td>
+                <!-- 4. ders: Sosyal Bilgiler -->
+                <td>İngilizce</td>
+                <!-- 5. ders: İngilizce -->
+            </tr>
+            <tr>
+                <td>Salı</td>
+                <td>Tarih</td>
+                <td>Coğrafya</td>
+                <td>Fizik</td>
+                <td>Beden Eğitimi</td>
+                <td>Kimya</td>
+            </tr>
+            <tr>
+                <td>Çarşamba</td>
+                <td>Matematik</td>
+                <td>Türk Dili ve Edebiyatı</td>
+                <td>Biyoloji</td>
+                <td>Resim</td>
+                <td>Müzik</td>
+            </tr>
+            <tr>
+                <td>Perşembe</td>
+                <td>İngilizce</td>
+                <td>Tarih</td>
+                <td>Kimya</td>
+                <td>Beden Eğitimi</td>
+                <td>Felsefe</td>
+            </tr>
+            <tr>
+                <td>Cuma</td>
+                <td>Matematik</td>
+                <td>Fizik</td>
+                <td>Kimya</td>
+                <td>Türkçe</td>
+                <td>Biyoloji</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

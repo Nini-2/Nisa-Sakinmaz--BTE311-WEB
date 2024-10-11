@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haftalık Ders Programı-BTE311</title>
+    <title>Haftalık Ders Programı ve Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #F0F8FF	;
+            background-color: #F0F8FF;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
             margin: 0;
+            padding: 20px;
         }
 
         .container {
@@ -22,6 +22,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
+            margin-bottom: 20px;
         }
 
         h1 {
@@ -41,7 +42,7 @@
         }
 
         th {
-            background-color: #5F9EA0	; /* Başlık arka plan rengi */
+            background-color: #5F9EA0; /* Başlık arka plan rengi */
             color: white;
         }
 
@@ -51,6 +52,19 @@
 
         tr:nth-child(even) td {
             background-color: #f1f1f1; /* satır rengi */
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
         }
     </style>
 </head>
@@ -75,7 +89,7 @@
                     <td>BTE307</td>
                     <td>BTE307</td>
                     <td></td>
-                    <td></td> <!-- Boş hücre -->
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Salı</td>
@@ -83,7 +97,7 @@
                     <td>EGT250</td>
                     <td>BTE309</td>
                     <td>BTE309</td>
-                    <td></td> <!-- Boş hücre -->
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Çarşamba</td>
@@ -105,12 +119,63 @@
                     <td>Cuma</td>
                     <td>BTE311</td>
                     <td>BTE311</td>
-                    <td></td> <!-- Boş hücre -->
-                    <td></td> <!-- Boş hücre -->
-                    <td></td> <!-- Boş hücre -->
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </tbody>
         </table>
     </div>
+
+    <div class="container">
+        <h1 style="text-align: center;">Lütfen Formu Eksiksiz Doldurunuz.</h1>
+        <form>
+            <h4>Hesap Bilgileriniz</h4>
+            <p>
+                Kullanıcı Adı: 
+                <input type="text" name="username" placeholder="Kullanıcı adı giriniz" required>
+            </p>
+            <p>
+                E-posta: 
+                <input type="email" name="eposta" placeholder="E-posta giriniz" required>
+            </p>
+            <p>
+                Parola: 
+                <input type="password" name="parola" placeholder="Parola giriniz" required>
+            </p>
+            <h4>Kişisel Bilgileriniz</h4>
+            <p>
+                Ad: 
+                <input type="text" name="ad">
+            </p>
+            <p>
+                Soyad: 
+                <input type="text" name="soyad">
+            </p>
+            <p>
+                Şehir: 
+                <select name="sehir">
+                    <option>Seçiniz</option>
+                    <option>Ankara</option>
+                    <option>İstanbul</option>
+                    <option>Kocaeli</option>
+                </select>
+            </p>
+            <p>
+                Cinsiyet: 
+                <input type="radio" name="cinsiyet" value="erkek"> Erkek 
+                <input type="radio" name="cinsiyet" value="kadin"> Kadın 
+            </p>
+            <p>
+                Hobileriniz: 
+                <input type="checkbox" name="hobiler" value="sinema"> Sinema 
+                <input type="checkbox" name="hobiler" value="gezmek"> Gezmek 
+                <input type="checkbox" name="hobiler" value="spor"> Spor 
+                <input type="checkbox" name="hobiler" value="kitap"> Kitap 
+            </p>
+            <input type="submit" value="Kaydet">
+        </form>
+    </div>
 </body>
 </html>
+

@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haftalık Ders Programı</title>
     <style>
-      
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
 
         table {
-            width: 100%;
+            width: 80%; /* Tablo genişliğini ayarladık */
             border-collapse: collapse;
             margin: 20px 0;
             background-color: #fff;
@@ -36,57 +40,64 @@
     </style>
 </head>
 <body>
-    <h1>Haftalık Ders Programı</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Gün</th>
-                <th>1.Ders</th>
-                <th>2. Ders</th>
-                <th>3. Ders</th>
-                <th>4. Ders</th>
-                <th>5. Ders</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Pazartesi</td>
-                <td>BTE307</td>
-                <td>BTE307</td>
-                <td>BTE307</td>
-                <td>Sosyal Bilgiler</td>
-               
-            </tr>
-            <tr>
-                <td>EGT250</td>
-                <td>EGT250</td>
-                <td>BTE309</td>
-                <td>BTE309</td>
-            
-            </tr>
-            <tr>
-                <td>EGT303</td>
-                <td>3GT303</td>
-                <td>BTE322</td>
-                <td>BTE322</td>
-                <td>SEC225</td>
-                <td>SEC225</td>
-            </tr>
-            <tr>
-                <td>GKS107</td>
-                <td>GKS107</td>
-                <td>EGT304</td>
-                <td>EGT304</td>
-                <td>EGT304</td>
-            </tr>
-            <tr>
-                <td>BTE311</td>
-                <td>BTE311</td>
-                <td>BTE311</td>
-                
-            </tr>
-        </tbody>
-    </table>
+    <div>
+        <h1 style="text-align: center;">Haftalık Ders Programı</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Gün</th>
+                    <th>1. Ders</th>
+                    <th>2. Ders</th>
+                    <th>3. Ders</th>
+                    <th>4. Ders</th>
+                    <th>5. Ders</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pazartesi</td>
+                    <td>BTE307</td>
+                    <td>BTE307</td>
+                    <td>BTE307</td>
+                    <td>Sosyal Bilgiler</td>
+                    <td></td> <!-- Boş hücre -->
+                </tr>
+                <tr>
+                    <td>Salı</td>
+                    <td>EGT250</td>
+                    <td>EGT250</td>
+                    <td>BTE309</td>
+                    <td>BTE309</td>
+                    <td></td> <!-- Boş hücre -->
+                </tr>
+                <tr>
+                    <td>Çarşamba</td>
+                    <td>EGT303</td>
+                    <td>3GT303</td>
+                    <td>BTE322</td>
+                    <td>BTE322</td>
+                    <td>SEC225</td>
+                </tr>
+                <tr>
+                    <td>Perşembe</td>
+                    <td>GKS107</td>
+                    <td>GKS107</td>
+                    <td>EGT304</td>
+                    <td>EGT304</td>
+                    <td>EGT304</td>
+                </tr>
+                <tr>
+                    <td>Cuma</td>
+                    <td>BTE311</td>
+                    <td>BTE311</td>
+                    <td></td> <!-- Boş hücre -->
+                    <td></td> <!-- Boş hücre -->
+                    <td></td> <!-- Boş hücre -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
+
+          

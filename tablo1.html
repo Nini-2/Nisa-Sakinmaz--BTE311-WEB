@@ -8,7 +8,6 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
-            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,7 +16,8 @@
         }
 
         .container {
-            width: 80%; 
+            width: 80%; /* Konteyner genişliği */
+            max-width: 800px; /* Maksimum genişlik */
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -30,23 +30,27 @@
         }
 
         table {
-            width: 100%; 
+            width: 100%; /* Tablonun genişliği */
             border-collapse: collapse;
         }
 
         th, td {
-            border: 1px solid #ddd;
+            border: 2px solid #4CAF50; /* Çizgilerin kalınlığı ve rengi */
             padding: 10px;
             text-align: center;
         }
 
         th {
-            background-color: #4CAF50;
+            background-color: #4CAF50; /* Başlık arka plan rengi */
             color: white;
         }
 
         td {
-            background-color: #f9f9f9;
+            background-color: #e0f7fa; /* Hücre arka plan rengi */
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f1f1f1; /* satır rengi */
         }
     </style>
 </head>
@@ -110,5 +114,3 @@
     </div>
 </body>
 </html>
-
-          

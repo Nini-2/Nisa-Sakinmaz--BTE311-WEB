@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Programcılığı Testi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h3 {
+            color: #333;
+        }
+        form {
+            text-align: left;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #sonuc {
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function sonucuGoster(event) {
+            event.preventDefault();
+            
+            // Kullanıcı ismini URL parametrelerinden alıyoruz
+            const urlParams = new URLSearchParams(window.location.search);
+            const kullaniciAdi = urlParams.get("isimSoyisim");
+
+            let puan = 0;
+            if (document.getElementById("soru1c").checked) puan++;
+            if (document.getElementById("soru2a").checked) puan++;
+            if (document.getElementById("soru3b").checked) puan++;
+            if (document.getElementById("soru4c").checked) puan++;
+
+            document.getElementById("sonuc").innerText = kullaniciAdi + ", Puanınız: " + puan + "/4";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h3>Web Programcılığı Testi</h3>
+        <form onsubmit="sonucuGoster(event)">
+            <label>Soru 1: HTML nedir?</label>
+            <input type="radio" id="soru1a" name="soru1" value="a">
+            <label for="soru1a">a) Hyper Tool Markup Language</label><br>
+            <input type="radio" id="soru1b" name="soru1" value="b">
+            <label for="soru1b">b) High Text Marking Language</label><br>
+            <input type="radio" id="soru1c" name="soru1" value="c">
+            <label for="soru1c">c) Hypertext Markup Language</label><br>
+
+            <label>Soru 2: CSS ne amaçla kullanılır?</label>
+            <input type="radio" id="soru2a" name="soru2" value="a">
+            <label for="soru2a">a) Web sayfası tasarımını düzenlemek</label><br>
+            <input type="radio" id="soru2b" name="soru2" value="b">
+            <label for="soru2b">b) Veritabanı bağlantısı kurmak</label><br>
+            <input type="radio" id="soru2c" name="soru2" value="c">
+            <label for="soru2c">c) Sunucu yönetimi yapmak</label><br>
+
+            <label>Soru 3: HTML'de link oluşturmak için hangi etiket kullanılır?</label>
+            <input type="radio" id="soru3a" name="soru3" value="a">
+            <label for="soru3a">a) &lt;img&gt;</label><br>
+            <input type="radio" id="soru3b" name="soru3" value="b">
+            <label for="soru3b">b) &lt;a&gt;</label><br>
+            <input type="radio" id="soru3c" name="soru3" value="c">
+            <label for="soru3c">c) &lt;link&gt;</label><br>
+
+            <label>Soru 4: Hangi HTML etiketi başlıkları tanımlar?</label>
+            <input type="radio" id="soru4a" name="soru4" value="a">
+            <label for="soru4a">a) &lt;p&gt;</label><br>
+            <input type="radio" id="soru4b" name="soru4" value="b">
+            <label for="soru4b">b) &lt;title&gt;</label><br>
+            <input type="radio" id="soru4c" name="soru4" value="c">
+            <label for="soru4c">c) &lt;h1&gt;</label><br>
+
+            <button type="submit">Sonucu Göster</button>
+        </form>
+        <p id="sonuc"></p>
+    </div>
+</body>
+</html>

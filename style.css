@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%; /* Daire oluşturmak için */
+    opacity: 0.4; 
+}
+
+.circle1 {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(128, 0, 128, 0.4); /* Mor */
+    top: 20px; 
+    left: 30px;
+}
+
+.circle2 {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(0, 0, 255, 0.4); /* Mavi */
+    top: 100px;
+    left: 70px;
+}
+
+.circle3 {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 0, 0, 0.4); /* Kırmızı */
+    top: 30px; 
+    left: 110px;
+}

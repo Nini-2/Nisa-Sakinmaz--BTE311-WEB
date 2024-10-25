@@ -11,7 +11,7 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #f4f4f9;
+            background-color: #f1e5ff; /* Arka plan rengi */
         }
         .container {
             max-width: 600px;
@@ -27,25 +27,34 @@
         form {
             text-align: left;
         }
+        .soru {
+            background-color: #f4f4f4; /* Soruların arka plan rengi */
+            padding: 15px;
+            margin: 15px 0; /* Sorular arasındaki boşluk */
+            border-radius: 4px;
+        }
         label {
             font-weight: bold;
             display: block;
             margin-top: 15px;
         }
-        input[type="radio"] {
-            margin-right: 5px;
+        .soru input[type="radio"] {
+            margin-left: 10px; /* Radyo butonları için sol boşluk */
+            vertical-align: middle; /* Butonları ortalamak için */
         }
         button {
-            background-color: #4CAF50;
+            background-color: #FF0400; /* Buton rengi */
             color: white;
             border: none;
             border-radius: 4px;
-            font-size: 16px;
+            font-size: 20px; /* Buton yazı boyutu büyütüldü */
+            padding: 15px; /* Buton içi boşluk artırıldı */
             cursor: pointer;
             margin-top: 20px;
+            width: 100%; /* Butonun genişliği %100 yapıldı */
         }
         button:hover {
-            background-color: #45a049;
+            background-color: #d70000;
         }
         #sonuc {
             font-size: 1.2em;
@@ -75,37 +84,69 @@
     <div class="container">
         <h3>Web Programcılığı Testi</h3>
         <form onsubmit="sonucuGoster(event)">
-            <label>Soru 1: HTML nedir?</label>
-            <input type="radio" id="soru1a" name="soru1" value="a">
-            <label for="soru1a">a) Hyper Tool Markup Language</label><br>
-            <input type="radio" id="soru1b" name="soru1" value="b">
-            <label for="soru1b">b) High Text Marking Language</label><br>
-            <input type="radio" id="soru1c" name="soru1" value="c">
-            <label for="soru1c">c) Hypertext Markup Language</label><br>
+            <div class="soru">
+                <label>Soru 1: HTML nedir?</label>
+                <label for="soru1a">a) Hyper Tool Markup Language
+                    <input type="radio" id="soru1a" name="soru1" value="a" style="margin-left: 10px;">
+                </label>
+                <label for="soru1b">b) High Text Marking Language
+                    <input type="radio" id="soru1b" name="soru1" value="b" style="margin-left: 10px;">
+                </label>
+                <label for="soru1c">c) Hypertext Markup Language
+                    <input type="radio" id="soru1c" name="soru1" value="c" style="margin-left: 10px;">
+                </label>
+                <label for="soru1d">d) Hypertext Multi Language
+                    <input type="radio" id="soru1d" name="soru1" value="d" style="margin-left: 10px;">
+                </label>
+            </div>
 
-            <label>Soru 2: CSS ne amaçla kullanılır?</label>
-            <input type="radio" id="soru2a" name="soru2" value="a">
-            <label for="soru2a">a) Web sayfası tasarımını düzenlemek</label><br>
-            <input type="radio" id="soru2b" name="soru2" value="b">
-            <label for="soru2b">b) Veritabanı bağlantısı kurmak</label><br>
-            <input type="radio" id="soru2c" name="soru2" value="c">
-            <label for="soru2c">c) Sunucu yönetimi yapmak</label><br>
+            <div class="soru">
+                <label>Soru 2: CSS ne amaçla kullanılır?</label>
+                <label for="soru2a">a) Web sayfası tasarımını düzenlemek
+                    <input type="radio" id="soru2a" name="soru2" value="a" style="margin-left: 10px;">
+                </label>
+                <label for="soru2b">b) Veritabanı bağlantısı kurmak
+                    <input type="radio" id="soru2b" name="soru2" value="b" style="margin-left: 10px;">
+                </label>
+                <label for="soru2c">c) Sunucu yönetimi yapmak
+                    <input type="radio" id="soru2c" name="soru2" value="c" style="margin-left: 10px;">
+                </label>
+                <label for="soru2d">d) Web sayfasındaki verileri analiz etmek
+                    <input type="radio" id="soru2d" name="soru2" value="d" style="margin-left: 10px;">
+                </label>
+            </div>
 
-            <label>Soru 3: HTML'de link oluşturmak için hangi etiket kullanılır?</label>
-            <input type="radio" id="soru3a" name="soru3" value="a">
-            <label for="soru3a">a) &lt;img&gt;</label><br>
-            <input type="radio" id="soru3b" name="soru3" value="b">
-            <label for="soru3b">b) &lt;a&gt;</label><br>
-            <input type="radio" id="soru3c" name="soru3" value="c">
-            <label for="soru3c">c) &lt;link&gt;</label><br>
+            <div class="soru">
+                <label>Soru 3: HTML'de link oluşturmak için hangi etiket kullanılır?</label>
+                <label for="soru3a">a) &lt;img&gt;
+                    <input type="radio" id="soru3a" name="soru3" value="a" style="margin-left: 10px;">
+                </label>
+                <label for="soru3b">b) &lt;a&gt;
+                    <input type="radio" id="soru3b" name="soru3" value="b" style="margin-left: 10px;">
+                </label>
+                <label for="soru3c">c) &lt;link&gt;
+                    <input type="radio" id="soru3c" name="soru3" value="c" style="margin-left: 10px;">
+                </label>
+                <label for="soru3d">d) &lt;href&gt;
+                    <input type="radio" id="soru3d" name="soru3" value="d" style="margin-left: 10px;">
+                </label>
+            </div>
 
-            <label>Soru 4: Hangi HTML etiketi başlıkları tanımlar?</label>
-            <input type="radio" id="soru4a" name="soru4" value="a">
-            <label for="soru4a">a) &lt;p&gt;</label><br>
-            <input type="radio" id="soru4b" name="soru4" value="b">
-            <label for="soru4b">b) &lt;title&gt;</label><br>
-            <input type="radio" id="soru4c" name="soru4" value="c">
-            <label for="soru4c">c) &lt;h1&gt;</label><br>
+            <div class="soru">
+                <label>Soru 4: Hangi HTML etiketi başlıkları tanımlar?</label>
+                <label for="soru4a">a) &lt;p&gt;
+                    <input type="radio" id="soru4a" name="soru4" value="a" style="margin-left: 10px;">
+                </label>
+                <label for="soru4b">b) &lt;title&gt;
+                    <input type="radio" id="soru4b" name="soru4" value="b" style="margin-left: 10px;">
+                </label>
+                <label for="soru4c">c) &lt;h1&gt;
+                    <input type="radio" id="soru4c" name="soru4" value="c" style="margin-left: 10px;">
+                </label>
+                <label for="soru4d">d) &lt;header&gt;
+                    <input type="radio" id="soru4d" name="soru4" value="d" style="margin-left: 10px;">
+                </label>
+            </div>
 
             <button type="submit">Sonucu Göster</button>
         </form>

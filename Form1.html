@@ -11,11 +11,11 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #f4f4f9;
+            background-color: #f1e5ff; /* Arka plan rengi */
         }
         .container {
-            max-width: 400px;
-            padding: 20px;
+            max-width: 500px; /* Daha büyük çerçeve */
+            padding: 30px; /* İçerik için daha fazla alan */
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -27,6 +27,7 @@
         label {
             font-weight: bold;
             margin-top: 15px;
+            display: block; /* Her label yeni bir satıra geçecek */
         }
         input, button {
             width: 100%;
@@ -36,15 +37,28 @@
             border-radius: 4px;
         }
         button {
-            background-color: #4CAF50;
+            background-color: #FF0400; /* Buton rengi */
             color: white;
             border: none;
             font-size: 16px;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 20px; /* Butonun üstünde yeterli boşluk */
         }
         button:hover {
-            background-color: #45a049;
+            background-color: #d70000; /* Buton hover rengi */
+        }
+        /* Bölüm araları için boşluk */
+        input {
+            margin-bottom: 15px; /* Her inputun altında boşluk */
+        }
+        .forgot-password {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #0066cc; /* Bağlantı rengi */
+        }
+        .forgot-password:hover {
+            text-decoration: underline; /* Üzerine gelince altı çizili */
+            cursor: pointer;
         }
     </style>
 </head>
@@ -66,9 +80,9 @@
 
             <button type="submit">Gönder ve Teste Başla</button>
         </form>
+        <div class="forgot-password">Şifremi unuttum?</div> <!-- Şifremi unuttum kısmı -->
     </div>
 </body>
 </html>
-
 
     

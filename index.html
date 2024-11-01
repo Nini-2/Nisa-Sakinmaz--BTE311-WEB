@@ -1,10 +1,53 @@
-<body>
-  
-<a href="hafta2.html"> Hafta 2 Ödevi</a>
-    <a href="tablo1.html"> Hafta 3 Ödevi</a>
-      <a href="Form1.html"> Hafta 4 Ödevi</a>
-       <a href="Test1.html"> Hafta 4 Ödevi</a>
-        <a href="Hafta5.html"> Hafta 5 Ödevi</a>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hafta Ödevleri</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
 
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .button-link {
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      font-size: 16px;
+      text-align: center;
+      width: 200px;
+      display: block;
+    }
+
+    .button-link:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <a href="hafta2.html" class="button-link">Hafta 2 Ödevi</a>
+  <a href="tablo1.html" class="button-link">Hafta 3 Ödevi</a>
+  <a href="Form1.html" class="button-link">Hafta 4 Ödevi</a>
+  <a href="Test1.html" class="button-link">Hafta 4 Ödevi</a>
+  <a href="Hafta5.html" class="button-link">Hafta 5 Ödevi</a>
+</div>
 
 </body>
+</html>
+

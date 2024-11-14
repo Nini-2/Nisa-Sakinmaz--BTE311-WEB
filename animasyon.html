@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animasyonlu Yüzler</title>
+    <title>Animasyon</title>
     <style>
         body {
             margin: 0;
@@ -59,29 +59,29 @@
             transform: translateX(-50%);
         }
 
-        /* Benzersiz Daireler */
+        /* Daireler */
         .circle1 {
-            background-color: #FF6347; /* Tomato */
+            background-color: #FF6347; 
             animation: move1 8s infinite ease-in-out, colorChange1 6s infinite ease-in-out, growAndFade 4s infinite, rotate 10s infinite linear;
         }
 
         .circle2 {
-            background-color: #4682B4; /* Steel Blue */
+            background-color: #4682B4; 
             animation: move2 9s infinite ease-in-out, colorChange2 6.5s infinite ease-in-out, growAndFade 3.5s infinite, rotate 9s infinite linear;
         }
 
         .circle3 {
-            background-color: #32CD32; /* Lime Green */
+            background-color: #32CD32; 
             animation: move3 10s infinite ease-in-out, colorChange3 7s infinite ease-in-out, growAndFade 5s infinite, rotate 8s infinite linear;
         }
 
         .circle4 {
-            background-color: #FFD700; /* Gold */
+            background-color: #FFD700; 
             animation: move4 7.5s infinite ease-in-out, colorChange4 6.8s infinite ease-in-out, growAndFade 4.5s infinite, rotate 7s infinite linear;
         }
 
         .circle5 {
-            background-color: #EE82EE; /* Violet */
+            background-color: #EE82EE; 
             animation: move5 6.5s infinite ease-in-out, colorChange5 8s infinite ease-in-out, growAndFade 4s infinite, rotate 11s infinite linear;
         }
 
@@ -157,19 +157,19 @@
             100% { background-color: #EE82EE; }
         }
 
-        /* Göz Kırpma */
+       
         @keyframes blink {
             0%, 100% { transform: scaleY(1); }
             50% { transform: scaleY(0.1); }
         }
 
-        /* Ağız Değişimi */
+       
         @keyframes changeMouth {
             0%, 100% { border-radius: 0 0 50px 50px; height: 10px; } /* Gülümseme */
             50% { border-radius: 50px 50px 0 0; height: 5px; } /* Üzgün ifade */
         }
 
-        /* Büyüme ve Transparanlık */
+        
         @keyframes growAndFade {
             0%, 100% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.5); opacity: 0.6; }

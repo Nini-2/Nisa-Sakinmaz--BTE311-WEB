@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Centered Cards</title>
+    <title>Responsive Centered Cards with Border</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         /* Arka plan rengini ayarlıyoruz */
@@ -13,6 +13,12 @@
         /* Kartları ortalamak için row'a stil ekliyoruz */
         .centered-cards {
             justify-content: center;
+        }
+        /* Kart çerçevesi */
+        .card {
+            border: 2px solid #ccc; /* Çerçeve rengi ve kalınlığı */
+            border-radius: 10px; /* Köşeleri hafif yuvarlatma */
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge */
         }
     </style>
 </head>

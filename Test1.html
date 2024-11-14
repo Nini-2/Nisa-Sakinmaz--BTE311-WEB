@@ -11,7 +11,7 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #f1e5ff; /* Arka plan rengi */
+            background-color: #f1e5ff; 
         }
         .container {
             max-width: 600px;
@@ -28,9 +28,9 @@
             text-align: left;
         }
         .soru {
-            background-color: #f4f4f4; /* Soruların arka plan rengi */
+            background-color: #f4f4f4; 
             padding: 15px;
-            margin: 15px 0; /* Sorular arasındaki boşluk */
+            margin: 15px 0;
             border-radius: 4px;
         }
         label {
@@ -39,19 +39,19 @@
             margin-top: 15px;
         }
         .soru input[type="radio"] {
-            margin-left: 10px; /* Radyo butonları için sol boşluk */
-            vertical-align: middle; /* Butonları ortalamak için */
+            margin-left: 10px; 
+            vertical-align: middle; 
         }
         button {
-            background-color: #FF0400; /* Buton rengi */
+            background-color: #FF0400; 
             color: white;
             border: none;
             border-radius: 4px;
-            font-size: 20px; /* Buton yazı boyutu büyütüldü */
-            padding: 15px; /* Buton içi boşluk artırıldı */
+            font-size: 20px; 
+            padding: 15px; 
             cursor: pointer;
             margin-top: 20px;
-            width: 100%; /* Butonun genişliği %100 yapıldı */
+            width: 100%; 
         }
         button:hover {
             background-color: #d70000;
@@ -66,7 +66,7 @@
         function sonucuGoster(event) {
             event.preventDefault();
             
-            // Kullanıcı ismini URL parametrelerinden alıyoruz
+            
             const urlParams = new URLSearchParams(window.location.search);
             const kullaniciAdi = urlParams.get("isimSoyisim");
 

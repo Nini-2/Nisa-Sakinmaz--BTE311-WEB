@@ -15,14 +15,14 @@ body {
 
 .circle {
     position: absolute;
-    border-radius: 50%; /* Daire oluşturmak için */
+    border-radius: 50%; 
     opacity: 0.4; 
 }
 
 .circle1 {
     width: 150px;
     height: 150px;
-    background-color: rgba(128, 0, 128, 0.4); /* Mor */
+    background-color: rgba(128, 0, 128, 0.4); 
     top: 20px; 
     left: 30px;
 }
@@ -30,7 +30,7 @@ body {
 .circle2 {
     width: 150px;
     height: 150px;
-    background-color: rgba(0, 0, 255, 0.4); /* Mavi */
+    background-color: rgba(0, 0, 255, 0.4); 
     top: 100px;
     left: 70px;
 }
@@ -38,7 +38,7 @@ body {
 .circle3 {
     width: 150px;
     height: 150px;
-    background-color: rgba(255, 0, 0, 0.4); /* Kırmızı */
+    background-color: rgba(255, 0, 0, 0.4); 
     top: 30px; 
     left: 110px;
 }

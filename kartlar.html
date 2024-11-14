@@ -38,7 +38,7 @@
 
         /* Resimlerin kart boyutuna uyumlu olması */
         .card-img-top {
-            height: 150px;
+            height: 140px;
             object-fit: cover;
             border-radius: 10px;
             margin-bottom: 10px;
@@ -56,23 +56,24 @@
             text-align: center;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 0.9rem;
-            padding: 8px 0;
+            font-size: 0.85rem;
+            padding: 6px 0;
             width: 100%;
         }
 
         .card-body {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: space-evenly; /* Yazıları ve butonları çerçeve içinde eşit aralıklarla yerleştir */
             height: 100%;
         }
 
         /* Kart başlıklarının iki yana yaslanması */
         .card-title {
             text-align: justify;
-            font-size: 1rem;
-            margin-bottom: 10px;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            margin-top: 5px;
         }
 
         /* Kartların düzgün hizalanması ve boşluklar */
@@ -87,7 +88,7 @@
         /* Kartlara dış yumuşak çerçeve */
         .card-container .card {
             border: 2px solid rgba(0, 0, 0, 0.05);
-            padding: 20px;
+            padding: 15px;
             box-sizing: border-box;
         }
     </style>

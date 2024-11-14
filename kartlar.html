@@ -3,23 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Centered Cards with Button</title>
+    <title>Responsive Cards with Different Sizes</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #ffdace;
-        }
-        .centered-cards {
+            margin: 0;
+            display: flex;
             justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
+
+        /* Kart çerçevesi ve gölgelendirme */
         .card {
             border: 2px solid #ccc;
             border-radius: 10px;
             box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
         }
-        .card-img-top {
-            margin-bottom: 10px;
+
+        /* Farklı kart boyutları */
+        .card-1 {
+            height: 200px;
+            width: 150px;
         }
+
+        .card-2 {
+            height: 250px;
+            width: 170px;
+        }
+
+        .card-3 {
+            height: 300px;
+            width: 200px;
+        }
+
+        .card-4 {
+            height: 220px;
+            width: 180px;
+        }
+
+        .card-5 {
+            height: 260px;
+            width: 160px;
+        }
+
+        .card-6 {
+            height: 280px;
+            width: 190px;
+        }
+
+        /* Resimlerin kart boyutuna uyumlu olması */
+        .card-img-top {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Buton düzeni */
         .btn-info-link {
             background-color: #007bff;
             color: white;
@@ -31,64 +71,64 @@
             text-decoration: none;
             border-radius: 5px;
         }
+
+        /* Kart başlıklarının ortalanması */
+        .card-title {
+            text-align: center;
+        }
+
+        /* Flex düzeni */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px; /* Kartlar arasında eşit boşluk */
+            flex-wrap: nowrap; /* Kartların aşağıya sarmasını engeller */
+        }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <div class="row centered-cards">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-4">
-                <div class="card">
-                    <img src="tech.jpg" class="card-img-top" alt="Teknoloji Resmi">
-                    <div class="card-body">
-                        <h5 class="card-title">Teknoloji</h5>
-                        <a href="#" class="btn-info-link">Daha fazla bilgi için tıklayınız</a>
-                    </div>
-                </div>
+    <div class="container card-container">
+        <div class="card card-1">
+            <img src="resim1.jpg" class="card-img-top" alt="Card Image 1">
+            <div class="card-body">
+                <h5 class="card-title">Card 1</h5>
+                <a href="#" class="btn-info-link">Xs:</a>
             </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-4">
-                <div class="card">
-                    <img src="health.jpg" class="card-img-top" alt="Sağlık Resmi">
-                    <div class="card-body">
-                        <h5 class="card-title">Sağlık</h5>
-                        <a href="#" class="btn-info-link">Daha fazla bilgi için tıklayınız</a>
-                    </div>
-                </div>
+        </div>
+        <div class="card card-2">
+            <img src="resim2.jpg" class="card-img-top" alt="Card Image 2">
+            <div class="card-body">
+                <h5 class="card-title">Card 2</h5>
+                <a href="#" class="btn-info-link">Sm:</a>
             </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-4">
-                <div class="card">
-                    <img src="environment.jpg" class="card-img-top" alt="Çevre Resmi">
-                    <div class="card-body">
-                        <h5 class="card-title">Çevre</h5>
-                        <a href="#" class="btn-info-link">Daha fazla bilgi için tıklayınız</a>
-                    </div>
-                </div>
+        </div>
+        <div class="card card-3">
+            <img src="resim3.jpg" class="card-img-top" alt="Card Image 3">
+            <div class="card-body">
+                <h5 class="card-title">Card 3</h5>
+                <a href="#" class="btn-info-link">Md:</a>
             </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-4">
-                <div class="card">
-                    <img src="education.jpg" class="card-img-top" alt="Eğitim Resmi">
-                    <div class="card-body">
-                        <h5 class="card-title">Eğitim</h5>
-                        <a href="#" class="btn-info-link">Daha fazla bilgi için tıklayınız</a>
-                    </div>
-                </div>
+        </div>
+        <div class="card card-4">
+            <img src="resim4.jpg" class="card-img-top" alt="Card Image 4">
+            <div class="card-body">
+                <h5 class="card-title">Card 4</h5>
+                <a href="#" class="btn-info-link">Lg:</a>
             </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-4">
-                <div class="card">
-                    <img src="art.jpg" class="card-img-top" alt="Sanat ve Tasarım Resmi">
-                    <div class="card-body">
-                        <h5 class="card-title">Sanat ve Tasarım</h5>
-                        <a href="#" class="btn-info-link">Daha fazla bilgi için tıklayınız</a>
-                    </div>
-                </div>
+        </div>
+        <div class="card card-5">
+            <img src="resim5.jpg" class="card-img-top" alt="Card Image 5">
+            <div class="card-body">
+                <h5 class="card-title">Card 5</h5>
+                <a href="#" class="btn-info-link">Xs:</a>
             </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-4">
-                <div class="card">
-                    <img src="innovation.jpg" class="card-img-top" alt="İnovasyon Resmi">
-                    <div class="card-body">
-                        <h5 class="card-title">İnovasyon</h5>
-                        <a href="#" class="btn-info-link">Daha fazla bilgi için tıklayınız</a>
-                    </div>
-                </div>
+        </div>
+        <div class="card card-6">
+            <img src="resim6.jpg" class="card-img-top" alt="Card Image 6">
+            <div class="card-body">
+                <h5 class="card-title">Card 6</h5>
+                <a href="#" class="btn-info-link">Lg:</a>
             </div>
         </div>
     </div>
@@ -98,4 +138,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-

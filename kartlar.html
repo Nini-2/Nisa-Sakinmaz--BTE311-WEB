@@ -15,16 +15,16 @@
             height: 100vh;
         }
 
-        /* Kart ve butonu tamamen saran çerçeve, yumuşak hatlı */
+        /* Kart çerçevesi ve gölgelendirme */
         .card {
-            border: 2px solid #333; /* Dış çerçeve */
-            border-radius: 15px; /* Çerçeve köşeleri daha yuvarlak */
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-            padding: 15px;
+            border-radius: 15px; /* Yumuşak köşeler */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+            padding: 10px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100%; /* Yüksekliği tam doldurur */
+            height: 100%;
+            background-color: white; /* Arka plan beyaz */
         }
 
         /* Farklı kart boyutları */
@@ -35,12 +35,12 @@
         .card-5 { height: 290px; width: 230px; }
         .card-6 { height: 310px; width: 250px; }
 
-        /* Resimlerin kart boyutuna uyumlu olması ve çerçeve eklenmesi */
+        /* Resimlerin kart boyutuna uyumlu olması */
         .card-img-top {
             height: 150px;
             object-fit: cover;
-            border: 2px solid #000;
-            border-radius: 5px;
+            border-radius: 10px; /* Hafif yuvarlak köşeler */
+            margin-bottom: 10px; /* Resimle metin arasında boşluk */
         }
 
         /* Buton düzeni */
@@ -53,23 +53,29 @@
             padding: 8px 0;
             text-decoration: none;
             border-radius: 5px;
-            border: 1px solid #007bff;
+            font-size: 0.9rem;
         }
 
         /* Kart başlıklarının ortalanması */
         .card-title {
             text-align: center;
-            font-size: 1.2rem;
-            margin-top: 10px;
+            font-size: 1.1rem;
         }
 
-        /* Flex düzeni */
+        /* Kartların düzgün hizalanması ve boşluklar */
         .card-container {
             display: flex;
             justify-content: center;
             align-items: flex-start;
             gap: 30px; /* Kartlar arasında eşit boşluk */
             flex-wrap: nowrap;
+        }
+
+        /* Kartlara dış yumuşak çerçeve */
+        .card-container .card {
+            border: 2px solid rgba(0, 0, 0, 0.05); /* Çok hafif, çizgisiz görünümlü çerçeve */
+            padding: 20px;
+            box-sizing: border-box; /* İçerik ve padding'i çerçevenin dışında tut */
         }
     </style>
 </head>
@@ -124,4 +130,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
 

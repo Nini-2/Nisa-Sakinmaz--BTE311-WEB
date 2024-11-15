@@ -104,9 +104,9 @@
     // Sayfa yüklendiğinde arka planı rastgele değiştirir
     function setRandomBackground() {
         const colors = [
-            '#fffaf0', '#f5fffa', '#caff70', '#ffc000', '#bc8f8f',
-            '#ee2c2c', '#FF6347', '#ff69b4', '#9a32cd', '#8a2be2', '#000000' /* Siyah dahil */
-          
+            '#fffaf0', '#f5fffa', '#caff70', '#ffc000', '#bc8f8f', /* Orijinal renkler */
+            '#ee2c2c', '#FF6347', '#ff69b4', '#87cefa', '#8a2be2', '#000000', /* Siyah dahil */
+            '#E6E6FA', '#AFEEEE', '#F08080', '#FFDAB9', '#F5FFFA'
         ];
         const randomColorIndex = Math.floor(Math.random() * colors.length);
         document.body.style.backgroundColor = colors[randomColorIndex];

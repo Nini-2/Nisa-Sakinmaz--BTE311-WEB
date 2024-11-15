@@ -1,1 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastgele Görüntü & Göster/Gizle</title>
+    <style>
+        /* Temel body ve buton stilleri */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: background 0.5s;
+        }
+        .container {
+            text-align: center;
+        }
+        .image {
+            display: none;
+            margin-top: 20px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
 
+<div class="container">
+    <!-- Rastgele görüntüleri yerleştireceğimiz img etiketleri -->
+    <img id="image1" class="image" src="resim1.jpg" alt="Resim 1">
+    <img id="image2" class="image" src="resim2.jpg" alt="Resim 2">
+    <img id="image3" class="image" src="resim3.jpg" alt="Resim 3">
+    <img id="image4" class="image" src="resim4.jpg" alt="Resim 4">
+    <img id="image5" class="image" src="resim5.jpg" alt="Resim 5">
+    <img id="image6" class="image" src="resim6.jpg" alt="Resim 6">
+    <img id="image7" class="image" src="resim7.jpg" alt="Resim 7">
+    <img id="image8" class="image" src="resim8.jpg" alt="Resim 8">
+    <img id="image9" class="image" src="resim9.jpg" alt="Resim 9">
+    <img id="image10" class="image" src="resim10.jpg" alt="Resim 10">
+
+    <!-- Göster/Gizle butonları -->
+    <button onclick="toggleVisibility('image1')">Resim 1 Göster/Gizle</button>
+    <button onclick="toggleVisibility('image2')">Resim 2 Göster/Gizle</button>
+    <button onclick="toggleVisibility('image3')">Resim 3 Göster/Gizle</button>
+</div>
+
+<script>
+    // Body arka planını rastgele resimlerden biriyle günceller
+    function setRandomBackground() {
+        const backgroundImages = [
+            'background1.jpg', 'background2.jpg', 'background3.jpg',
+            'background4.jpg', 'background5.jpg', 'background6.jpg',
+            'background7.jpg', 'background8.jpg', 'background9.jpg', 'background10.jpg'
+        ];
+        const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+        document.body.style.backgroundImage = `url('${backgroundImages[randomIndex]}')`;
+    }
+
+    // Sayfada rastgele bir resmi görünür yapar
+    function showRandomImage() {
+        const images = document.querySelectorAll('.image');
+        const randomIndex = Math.floor(Math.random() * images.length);
+
+        // Tüm resimleri gizleyin
+        images.forEach(image => image.style.display = 'none');
+
+        // Rastgele seçilen resmi gösterin
+        images[randomIndex].style.display = 'block';
+    }
+
+    // Resmi göster/gizle işlevi
+    function toggleVisibility(imageId) {
+        const image = document.getElementById(imageId);
+        if (image.style.display === "none" || image.style.display === "") {
+            image.style.display = "block";
+        } else {
+            image.style.display = "none";
+        }
+    }
+
+    // Sayfa yüklendiğinde rastgele bir arka plan belirle ve rastgele bir resmi göster
+    window.onload = function() {
+        setRandomBackground();
+        showRandomImage();
+    };
+</script>
+
+</body>
+</html>

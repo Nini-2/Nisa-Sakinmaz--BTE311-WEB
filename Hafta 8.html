@@ -18,16 +18,25 @@
             margin: 0;
             padding: 0;
         }
+        
+        /* Container'da resimleri ve butonları yatayda hizalamak */
         .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px; /* Aralarındaki boşluk */
             text-align: center;
         }
+
+        /* Resimlerin ve butonların görünümü */
         .image {
             display: none;
             margin-top: 20px;
-            max-width: 300px;
+            max-width: 200px;
         }
+
         button {
-            margin: 10px;
+            margin-top: 10px;
             padding: 10px 20px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -61,13 +70,12 @@
 
     // Sayfa yüklendiğinde arka planı rastgele değiştirir
     function setRandomBackground() {
-        const backgroundImages = [
-            'background1.jpg', 'background2.jpg', 'background3.jpg',
-            'background4.jpg', 'background5.jpg', 'background6.jpg',
-            'background7.jpg', 'background8.jpg', 'background9.jpg', 'background10.jpg'
+        const colors = [
+            '#FFB6C1', '#ADD8E6', '#90EE90', '#FFFFE0', '#D3D3D3', 
+            '#FF6347', '#98FB98', '#FFFACD', '#DCDCDC', '#FFE4B5'
         ];
-        const randomIndex = Math.floor(Math.random() * backgroundImages.length);
-        document.body.style.backgroundImage = `url('${backgroundImages[randomIndex]}')`;
+        const randomColorIndex = Math.floor(Math.random() * colors.length);
+        document.body.style.backgroundColor = colors[randomColorIndex];
     }
 
     // Sayfada rastgele 3 resim seçer ve bunları gösterir
@@ -94,7 +102,7 @@
         }
     }
 
-    // Sayfa yüklendiğinde rastgele bir arka plan ve 3 rastgele resim göster
+    // Sayfa yüklendiğinde rastgele bir arka plan rengi ve 3 rastgele resim göster
     window.onload = function() {
         setRandomBackground();  // Sayfa yüklendiğinde arka planı değiştir
         setRandomImages();      // Sayfa yüklendiğinde rastgele 3 resim göster
@@ -103,3 +111,4 @@
 
 </body>
 </html>
+

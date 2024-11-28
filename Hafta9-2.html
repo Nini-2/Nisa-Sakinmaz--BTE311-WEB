@@ -24,6 +24,8 @@
             margin-bottom: 20px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 50%; /* Kartın genişliği */
+            margin: 0 auto; /* Sayfaya ortalamak için */
         }
 
         .card-header {
@@ -33,6 +35,10 @@
         .result {
             font-size: 20px;
             font-weight: bold;
+        }
+
+        .incorrect {
+            color: red; /* Yanlış cevapları belirgin yapmak için */
         }
 
         button {
@@ -55,19 +61,6 @@
             visibility: visible;
             opacity: 1;
         }
-
-        .incorrect {
-            color: red; /* Yanlış cevapları belirgin yapmak için */
-        }
-
-        .correct {
-            color: green; /* Doğru cevapları belirgin yapmak için */
-        }
-
-        .reset-inputs input {
-            color: black; /* Renkleri sıfırlamak için */
-        }
-
     </style>
 </head>
 <body>
@@ -84,175 +77,94 @@
                 <div class="card-header">10 Soruluk Test</div>
                 <div class="card-body">
                     <form id="quiz-form">
-                        <div class="mb-3">
-                            <label>1) HTML nedir?</label><br>
-                            <input type="radio" name="q0" value="Bir programlama dili"> Bir programlama dili<br>
-                            <input type="radio" name="q0" value="Bir işaretleme dili"> Bir işaretleme dili<br>
-                            <input type="radio" name="q0" value="Bir stil dili"> Bir stil dili<br>
-                            <input type="radio" name="q0" value="Bir veritabanı"> Bir veritabanı
-                        </div>
-                        <div class="mb-3">
-                            <label>2) CSS nedir?</label><br>
-                            <input type="radio" name="q1" value="Bir işaretleme dili"> Bir işaretleme dili<br>
-                            <input type="radio" name="q1" value="Bir stil dili"> Bir stil dili<br>
-                            <input type="radio" name="q1" value="Bir programlama dili"> Bir programlama dili<br>
-                            <input type="radio" name="q1" value="Bir veritabanı"> Bir veritabanı
-                        </div>
-                        <div class="mb-3">
-                            <label>3) Bootstrap nedir?</label><br>
-                            <input type="radio" name="q2" value="Bir CSS framework'üdür."> Bir CSS framework'üdür.<br>
-                            <input type="radio" name="q2" value="Bir programlama dilidir."> Bir programlama dilidir.<br>
-                            <input type="radio" name="q2" value="Bir veritabanı yönetim sistemidir."> Bir veritabanı yönetim sistemidir.<br>
-                            <input type="radio" name="q2" value="Bir web sunucusudur."> Bir web sunucusudur.
-                        </div>
-                        <div class="mb-3">
-                            <label>4) JavaScript nedir?</label><br>
-                            <input type="radio" name="q3" value="Bir işaretleme dili"> Bir işaretleme dili<br>
-                            <input type="radio" name="q3" value="Bir stil dili"> Bir stil dili<br>
-                            <input type="radio" name="q3" value="Dinamik bir programlama dilidir."> Dinamik bir programlama dilidir.<br>
-                            <input type="radio" name="q3" value="Statik bir programlama dilidir."> Statik bir programlama dilidir.
-                        </div>
-                        <div class="mb-3">
-                            <label>5) CSS'de sınıf seçicisi nasıl tanımlanır?</label><br>
-                            <input type="radio" name="q4" value="#"> #<br>
-                            <input type="radio" name="q4" value="."> .<br>
-                            <input type="radio" name="q4" value="::"> ::<br>
-                            <input type="radio" name="q4" value="/"> /
-                        </div>
-                        <div class="mb-3">
-                            <label>6) HTML'de bir bağlantı (link) oluşturmak için hangi etiket kullanılır?</label><br>
-                            <input type="radio" name="q5" value="<link>"> &lt;link&gt;<br>
-                            <input type="radio" name="q5" value="<a>"> &lt;a&gt;<br>
-                            <input type="radio" name="q5" value="<href>"> &lt;href&gt;<br>
-                            <input type="radio" name="q5" value="<url>"> &lt;url&gt;
-                        </div>
-                        <div class="mb-3">
-                            <label>7) JavaScript hangi tür bir dildir?</label><br>
-                            <input type="radio" name="q6" value="Statik"> Statik<br>
-                            <input type="radio" name="q6" value="Dinamik"> Dinamik<br>
-                            <input type="radio" name="q6" value="Derlenmiş"> Derlenmiş<br>
-                            <input type="radio" name="q6" value="İşaretleme"> İşaretleme
-                        </div>
-                        <div class="mb-3">
-                            <label>8) HTML'de resim eklemek için hangi etiket kullanılır?</label><br>
-                            <input type="radio" name="q7" value="<img>"> &lt;img&gt;<br>
-                            <input type="radio" name="q7" value="<image>"> &lt;image&gt;<br>
-                            <input type="radio" name="q7" value="<src>"> &lt;src&gt;<br>
-                            <input type="radio" name="q7" value="<picture>"> &lt;picture&gt;
-                        </div>
-                        <div class="mb-3">
-                            <label>9) Bootstrap hangi amaçla kullanılır?</label><br>
-                            <input type="radio" name="q8" value="Veritabanı yönetimi"> Veritabanı yönetimi<br>
-                            <input type="radio" name="q8" value="CSS tasarımı ve düzeni"> CSS tasarımı ve düzeni<br>
-                            <input type="radio" name="q8" value="Veri analizi"> Veri analizi<br>
-                            <input type="radio" name="q8" value="Sunucu yönetimi"> Sunucu yönetimi
-                        </div>
-                        <div class="mb-3">
-                            <label>10) JavaScript'te bir fonksiyon nasıl tanımlanır?</label><br>
-                            <input type="radio" name="q9" value="function"> function<br>
-                            <input type="radio" name="q9" value="func"> func<br>
-                            <input type="radio" name="q9" value="def"> def<br>
-                            <input type="radio" name="q9" value="method"> method
-                        </div>
-                        <button type="button" class="btn btn-success" id="submit-button">Sonuçları Gönder</button>
-                        <div class="result mt-3" id="result"></div>
-                        <button type="button" class="btn btn-primary" id="restart-button" style="display:none;">Tekrar Dene</button>
+                        <!-- Sorular Burada Dinamik Olarak Eklenecek -->
                     </form>
+                    <button type="button" class="btn btn-success" id="submit-button">Sonuçları Gönder</button>
+                    <div class="result mt-3" id="result"></div>
+                    <button type="button" class="btn btn-primary" id="restart-button" style="display:none;">Yeniden Dene</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- JavaScript -->
     <script>
-        const correctAnswers = [
-            "Bir işaretleme dili", // Soru 1
-            "Bir stil dili", // Soru 2
-            "Bir CSS framework'üdür.", // Soru 3
-            "Dinamik bir programlama dilidir.", // Soru 4
-            ".", // Soru 5
-            "<a>", // Soru 6
-            "Dinamik", // Soru 7
-            "<img>", // Soru 8
-            "CSS tasarımı ve düzeni", // Soru 9
-            "function" // Soru 10
-        ];
-
-        document.getElementById('submit-button').onclick = function() {
-            const form = document.getElementById('quiz-form');
-            let result = '';
-            let correctCount = 0;
-            let wrongCount = 0;
-            let totalQuestions = 10;
-
-            // Tüm soruları kontrol et
-            for (let i = 0; i < totalQuestions; i++) {
-                const questionName = `q${i}`;
-                const selectedAnswer = form.querySelector(`input[name="${questionName}"]:checked`);
-                const correctAnswer = correctAnswers[i];
-
-                const questionDiv = form.querySelector(`.mb-3:nth-child(${i+1})`);
-                
-                // Şıkları kontrol et ve renkleri ayarla
-                const answers = questionDiv.querySelectorAll('input[type="radio"]');
-                answers.forEach(answer => {
-                    const answerLabel = answer.parentNode;
-                    // Eğer doğru şıksa yeşil, yanlış şıksa kırmızı olacak
-                    if (answer.value === correctAnswer && selectedAnswer && selectedAnswer.value === correctAnswer) {
-                        answerLabel.style.color = "green"; // Doğru cevap yeşil
-                    } else if (answer.value === correctAnswer && (!selectedAnswer || selectedAnswer.value !== correctAnswer)) {
-                        answerLabel.style.color = "red"; // Yanlış cevapta doğru şık kırmızı
-                    } else {
-                        answerLabel.style.color = "black"; // Diğerleri siyah
-                    }
+        // Soruları JSON dosyasından çekme
+        fetch('questions.json')
+            .then(response => response.json())
+            .then(data => {
+                const quizForm = document.getElementById('quiz-form');
+                data.forEach((q, index) => {
+                    const questionElement = document.createElement('div');
+                    questionElement.classList.add('mb-3');
+                    questionElement.innerHTML = `
+                        <label>${q.question}</label><br>
+                        ${q.options.map((option, i) => `
+                            <input type="radio" name="q${index}" value="${option}" id="q${index}a${i}">
+                            <label for="q${index}a${i}">${option}</label><br>
+                        `).join('')}
+                    `;
+                    quizForm.appendChild(questionElement);
                 });
 
-                // Yanlış veya boş cevapları işaretle
-                if (selectedAnswer) {
-                    if (selectedAnswer.value === correctAnswer) {
-                        correctCount++;
-                    } else {
-                        wrongCount++;
-                    }
-                } else {
-                    wrongCount++;
-                }
-            }
+                document.getElementById("submit-button").addEventListener("click", () => {
+                    evaluateQuiz(data);
+                });
 
-            result = `<p>Doğru: ${correctCount} | Yanlış: ${wrongCount}</p>`;
-            document.getElementById('result').innerHTML = result;
-
-            // Yeniden deneme butonunu göster
-            document.getElementById('restart-button').style.display = 'inline-block';
-        };
-
-        // Yeniden deneme butonu
-        document.getElementById('restart-button').onclick = function() {
-            // Formu sıfırla
-            const form = document.getElementById('quiz-form');
-            form.reset();
-
-            // Tüm renkleri sıfırla
-            const answers = form.querySelectorAll('input[type="radio"]');
-            answers.forEach(answer => {
-                const answerLabel = answer.parentNode;
-                answerLabel.style.color = "black"; // Normal renk
+                document.getElementById("restart-button").addEventListener("click", () => {
+                    restartQuiz();
+                });
             });
 
-            // Sonuçları sıfırla
-            document.getElementById('result').innerHTML = '';
-            document.getElementById('restart-button').style.display = 'none';
-        };
+        function evaluateQuiz(questions) {
+            let correct = 0;
+            const resultDiv = document.getElementById("result");
+            let incorrectAnswers = [];
 
-        // Duyuru otomatik kapanma
-        window.onload = function() {
-            const announcement = document.getElementById("announcement");
-            setTimeout(function() {
-                announcement.classList.add("show");
-            }, 100); // Duyuru hemen görünür olacak
+            questions.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                if (selected) {
+                    if (selected.value === q.answer) {
+                        correct++;
+                        document.querySelector(`input[name="q${index}"]:checked`).parentElement.style.color = "green";
+                    } else {
+                        document.querySelector(`input[name="q${index}"]:checked`).parentElement.style.color = "black";
+                        incorrectAnswers.push({ question: q.question, correctAnswer: q.answer });
+                        document.querySelectorAll(`input[name="q${index}"]`).forEach((elem) => {
+                            if (elem.value === q.answer) {
+                                elem.parentElement.style.color = "red"; // Yanlış cevaplarda doğru şık kırmızı
+                            }
+                        });
+                    }
+                }
+            });
 
-            setTimeout(function() {
-                announcement.classList.remove("show");
-            }, 5000); // 5 saniye sonra duyuru kapanacak
+            resultDiv.innerHTML = `Doğru Sayısı: ${correct} / ${questions.length}`;
+            document.getElementById("submit-button").style.display = "none";
+            document.getElementById("restart-button").style.display = "block";
+        }
+
+        function restartQuiz() {
+            document.getElementById("quiz-form").reset();
+            document.getElementById("result").innerHTML = "";
+            document.getElementById("submit-button").style.display = "block";
+            document.getElementById("restart-button").style.display = "none";
+            document.querySelectorAll('label').forEach(label => {
+                label.style.color = "black"; // Tüm renkleri tekrar siyah yap
+            });
+        }
+
+        // Sayfa açıldığında duyuruyu gösterme
+        function showAnnouncement() {
+            const announcement = document.getElementById('announcement');
+            announcement.classList.add('show');
+            setTimeout(() => {
+                announcement.classList.remove('show');
+            }, 5000);
+        }
+
+        window.onload = function () {
+            showAnnouncement();
         };
     </script>
 </body>

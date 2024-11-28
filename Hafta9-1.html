@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Daire Çizimi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #fdf5f8;
+      color: #333;
+      margin: 20px;
+    }
+    canvas {
+      display: block;
+      margin: 20px auto;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Canvas Pastel Daire Çizim Görevi</h1>
+  <p>Hafta 9 / Sayfa 12</p>
+  <canvas id="canvas" width="500" height="500"></canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    const rows = 10; // Satır sayısı
+    const cols = 10; // Sütun sayısı
+    const radius = 20; // Dairenin yarıçapı
+    const spacing = 50; // Daireler arası boşluk
+
+    // Renk geçişlerini pastel pembe, mor, lila gibi tonlara ayarlıyoruz
+    let hueStart = 300; // Başlangıç rengi (mor ton)
+    let hueStep = 8; // Renk tonlarının değişim miktarı
+
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < cols; col++) {
+        const x = spacing / 2 + col * spacing;
+        const y = spacing / 2 + row * spacing;
+
+        // Renk ayarı
+        const hue = hueStart + (row + col) * hueStep;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.strokeStyle = `hsl(${hue}, 70%, 80%)`; // Pastel pembe-mor tonları
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+    }
+  </script>
+</body>
+</html>
 

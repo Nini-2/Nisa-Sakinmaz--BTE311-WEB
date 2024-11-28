@@ -156,7 +156,6 @@
 
     <!-- JavaScript -->
     <script>
-        // Soruları değerlendirme ve sonuçları gösterme
         const questions = [
             { question: "HTML nedir?", answer: "Bir işaretleme dili" },
             { question: "CSS nedir?", answer: "Bir stil dili" },
@@ -167,51 +166,38 @@
             { question: "JavaScript hangi tür bir dildir?", answer: "Dinamik" },
             { question: "HTML'de resim eklemek için hangi etiket kullanılır?", answer: "<img>" },
             { question: "Bootstrap hangi amaçla kullanılır?", answer: "CSS tasarımı ve düzeni" },
-            { question: "JavaScript'te bir fonksiyon nasıl tanımlanır?", answer: "function" }
+            { question: "JavaScript'te bir fonksiyon nasıl tanımlanır?", answer: "function" },
         ];
 
-        function evaluateQuiz() {
-            let correct = 0;
-            const resultDiv = document.getElementById("result");
-            let incorrectAnswers = [];
-
+        document.getElementById("submit-button").addEventListener("click", () => {
+            let score = 0;
+            const form = document.forms["quiz-form"];
             questions.forEach((q, index) => {
-                const selected = document.querySelector(input[name="q${index}"]:checked);
-                if (selected) {
-                    if (selected.value === q.answer) {
-                        correct++;
-                    } else {
-                        incorrectAnswers.push({ question: q.question, correctAnswer: q.answer });
-                    }
+                const answer = form[`q${index}`].value;
+                if (answer === q.answer) {
+                    score++;
                 }
             });
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `Toplam Doğru: ${score}/${questions.length}`;
+            if (score < questions.length) {
+                resultDiv.innerHTML += `<br><span class="incorrect">Yanlış veya eksik cevaplarınız var!</span>`;
+            }
+            document.getElementById("restart-button").style.display = "inline-block";
+        });
 
-            resultDiv.innerHTML = Doğru Sayısı: ${correct} / ${questions.length};
-            document.getElementById("submit-button").style.display = "none";
-            document.getElementById("restart-button").style.display = "block";
-        }
-
-        // Sayfa açıldığında duyuruyu gösterme
-        function showAnnouncement() {
-            const announcement = document.getElementById('announcement');
-            announcement.classList.add('show');
-            setTimeout(() => {
-                announcement.classList.remove('show');
-            }, 5000);
-        }
-
-        function restartQuiz() {
+        document.getElementById("restart-button").addEventListener("click", () => {
             document.getElementById("quiz-form").reset();
             document.getElementById("result").innerHTML = "";
-            document.getElementById("submit-button").style.display = "block";
             document.getElementById("restart-button").style.display = "none";
-        }
+        });
 
-        window.onload = function () {
-            showAnnouncement();
-            document.getElementById("submit-button").addEventListener("click", evaluateQuiz);
-            document.getElementById("restart-button").addEventListener("click", restartQuiz);
-        };
+        // Duyuru
+        const announcement = document.getElementById("announcement");
+        announcement.classList.add("show");
+        setTimeout(() => {
+            announcement.classList.remove("show");
+        }, 5000);
     </script>
 </body>
 </html>

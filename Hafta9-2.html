@@ -24,7 +24,7 @@
             margin-bottom: 20px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 80%; /* Kartın genişliğini daraltmak */
+            width: 60%; /* Kartın genişliğini daraltmak */
             margin-left: auto;
             margin-right: auto;
         }
@@ -60,11 +60,11 @@
         }
 
         .incorrect {
-            color: red; /* Yanlış cevapları belirgin yapmak için */
+            color: red; /* Yanlış cevaplar kırmızı */
         }
 
         .correct {
-            color: green; /* Doğru cevapları belirgin yapmak için */
+            color: green; /* Doğru cevaplar yeşil */
         }
 
         .reset-inputs input {
@@ -211,6 +211,7 @@
         quizData.questions.forEach((question, index) => {
             const questionDiv = document.createElement("div");
             questionDiv.classList.add("question-space");
+
             const questionTitle = document.createElement("p");
             questionTitle.textContent = `${index + 1}. ${question.question}`;
             questionDiv.appendChild(questionTitle);
@@ -239,8 +240,13 @@
             let score = 0;
             quizData.questions.forEach((question, index) => {
                 const selectedAnswer = document.querySelector(`input[name="question${index}"]:checked`);
-                if (selectedAnswer && selectedAnswer.value === question.correctAnswer) {
-                    score++;
+                if (selectedAnswer) {
+                    if (selectedAnswer.value === question.correctAnswer) {
+                        score++;
+                        selectedAnswer.parentElement.classList.add("correct");
+                    } else {
+                        selectedAnswer.parentElement.classList.add("incorrect");
+                    }
                 }
             });
 

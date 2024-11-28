@@ -13,7 +13,7 @@
       height: 100vh;
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #fff0f5;
+      background-color: #fff0f5; 
     }
 
     h1 {
@@ -25,120 +25,181 @@
     .container {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      align-items: flex-start;
+      gap: 10px;
+      align-items: center;
     }
 
-    .mb-3 {
+    .question {
       margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .option {
+      margin: 5px;
     }
 
     .button-link {
       text-decoration: none;
       padding: 10px 20px;
-      background-color: #68228b;
+      background-color: #68228b; 
       color: white;
       border-radius: 5px;
       font-size: 16px;
       text-align: center;
       width: 200px;
       display: block;
+      margin-top: 20px;
     }
 
     .button-link:hover {
-      background-color: #ff0000;
+      background-color: #ff0000; 
     }
   </style>
 </head>
 <body>
 
-<h1>BTE311-ÖDEVLER-Nisa Sakınmaz</h1>
+  <h1>BTE311-ÖDEVLER-Nisa Sakınmaz</h1>
+  
+  <div class="container" id="quiz-container">
+    <!-- Sorular buraya eklenecek -->
+  </div>
 
-<div class="container">
-  <form id="quiz-form">
-    <div class="mb-3">
-      <label>1) HTML nedir?</label><br>
-      <input type="radio" name="q0" value="Bir programlama dili"> Bir programlama dili<br>
-      <input type="radio" name="q0" value="Bir işaretleme dili"> Bir işaretleme dili<br>
-      <input type="radio" name="q0" value="Bir stil dili"> Bir stil dili<br>
-      <input type="radio" name="q0" value="Bir veritabanı"> Bir veritabanı
-    </div>
+  <script>
+    const quizData = {
+      "questions": [
+        {
+          "question": "HTML nedir?",
+          "options": [
+            "Bir programlama dili",
+            "Bir işaretleme dili",
+            "Bir stil dili",
+            "Bir veritabanı"
+          ],
+          "correct_answer": "Bir işaretleme dili"
+        },
+        {
+          "question": "CSS nedir?",
+          "options": [
+            "Bir işaretleme dili",
+            "Bir stil dili",
+            "Bir programlama dili",
+            "Bir veritabanı"
+          ],
+          "correct_answer": "Bir stil dili"
+        },
+        {
+          "question": "Bootstrap nedir?",
+          "options": [
+            "Bir CSS framework'üdür.",
+            "Bir programlama dilidir.",
+            "Bir veritabanı yönetim sistemidir.",
+            "Bir web sunucusudur."
+          ],
+          "correct_answer": "Bir CSS framework'üdür."
+        },
+        {
+          "question": "JavaScript nedir?",
+          "options": [
+            "Bir işaretleme dili",
+            "Bir stil dili",
+            "Dinamik bir programlama dilidir.",
+            "Statik bir programlama dilidir."
+          ],
+          "correct_answer": "Dinamik bir programlama dilidir."
+        },
+        {
+          "question": "CSS'de sınıf seçicisi nasıl tanımlanır?",
+          "options": [
+            "#",
+            ".",
+            "::",
+            "/"
+          ],
+          "correct_answer": "."
+        },
+        {
+          "question": "HTML'de bir bağlantı (link) oluşturmak için hangi etiket kullanılır?",
+          "options": [
+            "<link>",
+            "<a>",
+            "<href>",
+            "<url>"
+          ],
+          "correct_answer": "<a>"
+        },
+        {
+          "question": "JavaScript hangi tür bir dildir?",
+          "options": [
+            "Statik",
+            "Dinamik",
+            "Derlenmiş",
+            "İşaretleme"
+          ],
+          "correct_answer": "Dinamik"
+        },
+        {
+          "question": "HTML'de resim eklemek için hangi etiket kullanılır?",
+          "options": [
+            "<img>",
+            "<image>",
+            "<src>",
+            "<picture>"
+          ],
+          "correct_answer": "<img>"
+        },
+        {
+          "question": "Bootstrap hangi amaçla kullanılır?",
+          "options": [
+            "Veritabanı yönetimi",
+            "CSS tasarımı ve düzeni",
+            "Veri analizi",
+            "Sunucu yönetimi"
+          ],
+          "correct_answer": "CSS tasarımı ve düzeni"
+        },
+        {
+          "question": "JavaScript'te bir fonksiyon nasıl tanımlanır?",
+          "options": [
+            "function",
+            "func",
+            "def",
+            "method"
+          ],
+          "correct_answer": "function"
+        }
+      ]
+    };
 
-    <div class="mb-3">
-      <label>2) CSS nedir?</label><br>
-      <input type="radio" name="q1" value="Bir işaretleme dili"> Bir işaretleme dili<br>
-      <input type="radio" name="q1" value="Bir stil dili"> Bir stil dili<br>
-      <input type="radio" name="q1" value="Bir programlama dili"> Bir programlama dili<br>
-      <input type="radio" name="q1" value="Bir veritabanı"> Bir veritabanı
-    </div>
+    const quizContainer = document.getElementById('quiz-container');
 
-    <div class="mb-3">
-      <label>3) Bootstrap nedir?</label><br>
-      <input type="radio" name="q2" value="Bir CSS framework'üdür."> Bir CSS framework'üdür.<br>
-      <input type="radio" name="q2" value="Bir programlama dilidir."> Bir programlama dilidir.<br>
-      <input type="radio" name="q2" value="Bir veritabanı yönetim sistemidir."> Bir veritabanı yönetim sistemidir.<br>
-      <input type="radio" name="q2" value="Bir web sunucusudur."> Bir web sunucusudur.
-    </div>
+    quizData.questions.forEach((question, index) => {
+      // Her bir soruyu oluştur
+      const questionElement = document.createElement('div');
+      questionElement.classList.add('question');
+      questionElement.innerHTML = `${index + 1}) ${question.question}`;
 
-    <div class="mb-3">
-      <label>4) JavaScript nedir?</label><br>
-      <input type="radio" name="q3" value="Bir işaretleme dili"> Bir işaretleme dili<br>
-      <input type="radio" name="q3" value="Bir stil dili"> Bir stil dili<br>
-      <input type="radio" name="q3" value="Dinamik bir programlama dilidir."> Dinamik bir programlama dilidir.<br>
-      <input type="radio" name="q3" value="Statik bir programlama dilidir."> Statik bir programlama dilidir.
-    </div>
+      // Şıkları oluştur
+      const optionsContainer = document.createElement('div');
+      optionsContainer.classList.add('options');
 
-    <div class="mb-3">
-      <label>5) CSS'de sınıf seçicisi nasıl tanımlanır?</label><br>
-      <input type="radio" name="q4" value="#"> #<br>
-      <input type="radio" name="q4" value="."> .<br>
-      <input type="radio" name="q4" value="::"> ::<br>
-      <input type="radio" name="q4" value="/"> /
-    </div>
+      question.options.forEach(option => {
+        const optionElement = document.createElement('div');
+        optionElement.classList.add('option');
+        optionElement.innerHTML = `<input type="radio" name="q${index}" value="${option}"> ${option}`;
+        optionsContainer.appendChild(optionElement);
+      });
 
-    <div class="mb-3">
-      <label>6) HTML'de bir bağlantı (link) oluşturmak için hangi etiket kullanılır?</label><br>
-      <input type="radio" name="q5" value="<link>"> &lt;link&gt;<br>
-      <input type="radio" name="q5" value="<a>"> &lt;a&gt;<br>
-      <input type="radio" name="q5" value="<href>"> &lt;href&gt;<br>
-      <input type="radio" name="q5" value="<url>"> &lt;url&gt;
-    </div>
-
-    <div class="mb-3">
-      <label>7) JavaScript hangi tür bir dildir?</label><br>
-      <input type="radio" name="q6" value="Statik"> Statik<br>
-      <input type="radio" name="q6" value="Dinamik"> Dinamik<br>
-      <input type="radio" name="q6" value="Derlenmiş"> Derlenmiş<br>
-      <input type="radio" name="q6" value="İşaretleme"> İşaretleme
-    </div>
-
-    <div class="mb-3">
-      <label>8) HTML'de resim eklemek için hangi etiket kullanılır?</label><br>
-      <input type="radio" name="q7" value="<img>"> &lt;img&gt;<br>
-      <input type="radio" name="q7" value="<image>"> &lt;image&gt;<br>
-      <input type="radio" name="q7" value="<src>"> &lt;src&gt;<br>
-      <input type="radio" name="q7" value="<picture>"> &lt;picture&gt;
-    </div>
-
-    <div class="mb-3">
-      <label>9) Bootstrap hangi amaçla kullanılır?</label><br>
-      <input type="radio" name="q8" value="Veritabanı yönetimi"> Veritabanı yönetimi<br>
-      <input type="radio" name="q8" value="CSS tasarımı ve düzeni"> CSS tasarımı ve düzeni<br>
-      <input type="radio" name="q8" value="Veri analizi"> Veri analizi<br>
-      <input type="radio" name="q8" value="Sunucu yönetimi"> Sunucu yönetimi
-    </div>
-
-    <div class="mb-3">
-      <label>10) JavaScript'te bir fonksiyon nasıl tanımlanır?</label><br>
-      <input type="radio" name="q9" value="function"> function<br>
-      <input type="radio" name="q9" value="func"> func<br>
-      <input type="radio" name="q9" value="def"> def<br>
-      <input type="radio" name="q9" value="method"> method
-    </div>
-
-    <button type="submit" class="button-link">Sonuçları Göster</button>
-  </form>
-</div>
+      // Soru ve şıkları ekle
+      quizContainer.appendChild(questionElement);
+      quizContainer.appendChild(optionsContainer);
+    });
+  </script>
 
 </body>
 </html>

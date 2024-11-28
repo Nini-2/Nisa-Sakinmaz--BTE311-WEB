@@ -1,1 +1,172 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hafta 9 Ödevi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+            background-color: #333;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        section {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #000;
+        }
+
+        #announcement {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.5s linear;
+            background-color: #ffcc00;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #announcement.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .quiz-question {
+            margin-bottom: 20px;
+        }
+
+        .quiz-question h4 {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hafta 9</h1>
+    </header>
+
+    <nav>
+        <a href="#canvas-section">Canvas Çizimi</a>
+        <a href="#quiz-section">Test Soruları</a>
+    </nav>
+
+    <!-- Duyuru Penceresi -->
+    <section id="announcement-section">
+        <div id="announcement">
+            Bu bir duyuru penceresidir. 5 saniye sonra kapanacak.
+        </div>
+    </section>
+
+    <!-- Canvas Çizimi -->
+    <section id="canvas-section">
+        <h2>Canvas Çizimi</h2>
+        <canvas id="canvas" width="500" height="500"></canvas>
+    </section>
+
+    <!-- Test Soruları -->
+    <section id="quiz-section">
+        <h2>Test Soruları</h2>
+        <div id="quiz"></div>
+    </section>
+
+    <script>
+        // Görev 1: Duyuru Penceresi
+        function showAnnouncement() {
+            const announcement = document.getElementById('announcement');
+            announcement.classList.add('show');
+            setTimeout(() => {
+                announcement.classList.remove('show');
+            }, 5000);
+        }
+
+        // Görev 2: JSON'dan Test Soruları
+        const questions = [
+            { question: "HTML nedir?", choices: ["Bir programlama dili", "Bir işaretleme dili", "Bir stil dili"], answer: "Bir işaretleme dili" },
+            { question: "CSS nedir?", choices: ["Bir işaretleme dili", "Bir stil dili", "Bir veritabanı"], answer: "Bir stil dili" },
+            { question: "JavaScript nedir?", choices: ["Bir programlama dili", "Bir veritabanı", "Bir stil dili"], answer: "Bir programlama dili" }
+        ];
+
+        function loadQuiz() {
+            const quizDiv = document.getElementById("quiz");
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement("div");
+                questionDiv.className = "quiz-question";
+                questionDiv.innerHTML = `<h4>${index + 1}. ${q.question}</h4>`;
+                q.choices.forEach(choice => {
+                    questionDiv.innerHTML += `<p><input type="radio" name="q${index}"> ${choice}</p>`;
+                });
+                quizDiv.appendChild(questionDiv);
+            });
+        }
+
+        // Görev 3: Canvas ile 10x10 Kare
+        function drawSquares() {
+            const canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                const ctx = canvas.getContext('2d');
+                const squareSize = 50;
+                for (let i = 0; i < 10; i++) {
+                    for (let j = 0; j < 10; j++) {
+                        ctx.fillStyle = getRandomColor();
+                        ctx.fillRect(i * squareSize, j * squareSize, squareSize, squareSize);
+                    }
+                }
+            }
+        }
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Sayfa yüklendiğinde tüm görevleri çalıştır
+        window.onload = function () {
+            showAnnouncement();
+            loadQuiz();
+            drawSquares();
+        };
+    </script>
+</body>
+</html>
 

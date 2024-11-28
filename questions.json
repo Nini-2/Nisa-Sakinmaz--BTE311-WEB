@@ -2,103 +2,103 @@
   "questions": [
     {
       "question": "HTML nedir?",
-      "options": [
+      "answers": [
         "Bir programlama dili",
         "Bir işaretleme dili",
         "Bir stil dili",
         "Bir veritabanı"
       ],
-      "correct_answer": "Bir işaretleme dili"
+      "correctAnswer": "Bir işaretleme dili"
     },
     {
       "question": "CSS nedir?",
-      "options": [
+      "answers": [
         "Bir işaretleme dili",
         "Bir stil dili",
         "Bir programlama dili",
         "Bir veritabanı"
       ],
-      "correct_answer": "Bir stil dili"
+      "correctAnswer": "Bir stil dili"
     },
     {
       "question": "Bootstrap nedir?",
-      "options": [
+      "answers": [
         "Bir CSS framework'üdür.",
         "Bir programlama dilidir.",
         "Bir veritabanı yönetim sistemidir.",
         "Bir web sunucusudur."
       ],
-      "correct_answer": "Bir CSS framework'üdür."
+      "correctAnswer": "Bir CSS framework'üdür."
     },
     {
       "question": "JavaScript nedir?",
-      "options": [
+      "answers": [
         "Bir işaretleme dili",
         "Bir stil dili",
         "Dinamik bir programlama dilidir.",
         "Statik bir programlama dilidir."
       ],
-      "correct_answer": "Dinamik bir programlama dilidir."
+      "correctAnswer": "Dinamik bir programlama dilidir."
     },
     {
       "question": "CSS'de sınıf seçicisi nasıl tanımlanır?",
-      "options": [
+      "answers": [
         "#",
         ".",
         "::",
         "/"
       ],
-      "correct_answer": "."
+      "correctAnswer": "."
     },
     {
       "question": "HTML'de bir bağlantı (link) oluşturmak için hangi etiket kullanılır?",
-      "options": [
+      "answers": [
         "<link>",
         "<a>",
         "<href>",
         "<url>"
       ],
-      "correct_answer": "<a>"
+      "correctAnswer": "<a>"
     },
     {
       "question": "JavaScript hangi tür bir dildir?",
-      "options": [
+      "answers": [
         "Statik",
         "Dinamik",
         "Derlenmiş",
         "İşaretleme"
       ],
-      "correct_answer": "Dinamik"
+      "correctAnswer": "Dinamik"
     },
     {
       "question": "HTML'de resim eklemek için hangi etiket kullanılır?",
-      "options": [
+      "answers": [
         "<img>",
         "<image>",
         "<src>",
         "<picture>"
       ],
-      "correct_answer": "<img>"
+      "correctAnswer": "<img>"
     },
     {
       "question": "Bootstrap hangi amaçla kullanılır?",
-      "options": [
+      "answers": [
         "Veritabanı yönetimi",
         "CSS tasarımı ve düzeni",
         "Veri analizi",
         "Sunucu yönetimi"
       ],
-      "correct_answer": "CSS tasarımı ve düzeni"
+      "correctAnswer": "CSS tasarımı ve düzeni"
     },
     {
       "question": "JavaScript'te bir fonksiyon nasıl tanımlanır?",
-      "options": [
+      "answers": [
         "function",
         "func",
         "def",
         "method"
       ],
-      "correct_answer": "function"
+      "correctAnswer": "function"
     }
   ]
 }

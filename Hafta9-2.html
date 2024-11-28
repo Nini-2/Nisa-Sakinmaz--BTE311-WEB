@@ -3,38 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hafta 9 Ödevi</title>
+    <title>Hafta 9 Test Sayfası</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f9;
-        }
-
-        header {
-            background-color: #4CAF50;
-            padding: 10px;
-            text-align: center;
-            color: white;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 10px 0;
-            background-color: #333;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #4CAF50;
         }
 
         section {
@@ -46,21 +21,15 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        canvas {
-            display: block;
-            margin: 0 auto;
-            border: 1px solid #000;
-        }
-
         #announcement {
             visibility: hidden;
             opacity: 0;
             transition: visibility 0s, opacity 0.5s linear;
             background-color: #ffcc00;
-            padding: 10px;
+            padding: 20px;
             border-radius: 10px;
             text-align: center;
-            margin-bottom: 20px;
+            font-size: 18px;
         }
 
         #announcement.show {
@@ -75,39 +44,131 @@
         .quiz-question h4 {
             margin: 10px 0;
         }
+
+        .incorrect {
+            color: red;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #restart-button {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Hafta 9</h1>
-    </header>
-
-    <nav>
-        <a href="#canvas-section">Canvas Çizimi</a>
-        <a href="#quiz-section">Test Soruları</a>
-    </nav>
-
     <!-- Duyuru Penceresi -->
-    <section id="announcement-section">
-        <div id="announcement">
-            Bu bir duyuru penceresidir. 5 saniye sonra kapanacak.
-        </div>
-    </section>
+    <div id="announcement">
+        Bu bir duyuru penceresidir. 5 saniye sonra kapanacak.
+    </div>
 
-    <!-- Canvas Çizimi -->
-    <section id="canvas-section">
-        <h2>Canvas Çizimi</h2>
-        <canvas id="canvas" width="500" height="500"></canvas>
-    </section>
-
-    <!-- Test Soruları -->
     <section id="quiz-section">
-        <h2>Test Soruları</h2>
+        <h2>10 Soruluk Test</h2>
         <div id="quiz"></div>
+        <button id="submit-button">Sonuçları Gönder</button>
+        <div class="result" id="result"></div>
+        <button id="restart-button">Yeniden Dene</button>
     </section>
 
     <script>
-        // Görev 1: Duyuru Penceresi
+        const questions = [
+            { question: "HTML nedir?", choices: ["Bir programlama dili", "Bir işaretleme dili", "Bir stil dili", "Bir veritabanı"], answer: "Bir işaretleme dili" },
+            { question: "CSS nedir?", choices: ["Bir işaretleme dili", "Bir stil dili", "Bir programlama dili", "Bir veritabanı"], answer: "Bir stil dili" },
+            { question: "Bootstrap hangi amaçla kullanılır?", choices: ["Veritabanı yönetimi", "Web sitesi tasarımı", "Veri analizi", "Sunucu yönetimi"], answer: "Web sitesi tasarımı" },
+            { question: "JavaScript'te değişken tanımlamak için hangi anahtar kelime kullanılır?", choices: ["var", "define", "set", "create"], answer: "var" },
+            { question: "CSS'de sınıf seçicisi nasıl tanımlanır?", choices: ["#", ".", ":", "/"], answer: "." },
+            { question: "HTML'de bir bağlantı (link) oluşturmak için hangi etiket kullanılır?", choices: ["<link>", "<a>", "<href>", "<url>"], answer: "<a>" },
+            { question: "JavaScript hangi tür bir dildir?", choices: ["Statik", "Dinamik", "Derlenmiş", "İşaretleme"], answer: "Dinamik" },
+            { question: "Bootstrap ile ilgili aşağıdaki ifadelerden hangisi doğrudur?", choices: ["Bootstrap bir programlama dilidir.", "Bootstrap CSS için bir kütüphanedir.", "Bootstrap veritabanı işlemleri için kullanılır.", "Bootstrap JavaScript framework'üdür."], answer: "Bootstrap CSS için bir kütüphanedir." },
+            { question: "HTML'de bir resim eklemek için hangi etiket kullanılır?", choices: ["<img>", "<image>", "<src>", "<picture>"], answer: "<img>" },
+            { question: "JavaScript'te bir fonksiyon nasıl tanımlanır?", choices: ["function", "func", "def", "method"], answer: "function" }
+        ];
+
+        function loadQuiz() {
+            const quizDiv = document.getElementById("quiz");
+            quizDiv.innerHTML = "";
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement("div");
+                questionDiv.className = "quiz-question";
+                questionDiv.innerHTML = `<h4>${index + 1}. ${q.question}</h4>`;
+                q.choices.forEach(choice => {
+                    questionDiv.innerHTML += `<p><input type="radio" name="q${index}" value="${choice}"> ${choice}</p>`;
+                });
+                quizDiv.appendChild(questionDiv);
+            });
+        }
+
+        function evaluateQuiz() {
+            let correct = 0;
+            const resultDiv = document.getElementById("result");
+            const quizDiv = document.getElementById("quiz");
+            let incorrectAnswers = [];
+
+            questions.forEach((q, index) => {
+                const userAnswer = document.querySelector(`input[name="q${index}"]:checked`);
+                const correctAnswer = q.answer;
+
+                if (userAnswer) {
+                    const answerValue = userAnswer.value;
+                    if (answerValue === correctAnswer) {
+                        correct++;
+                    } else {
+                        incorrectAnswers.push({ question: q.question, correctAnswer: correctAnswer });
+                    }
+                }
+            });
+
+            resultDiv.innerHTML = `Doğru Sayısı: ${correct} / ${questions.length}`;
+            showIncorrectAnswers(incorrectAnswers);
+            document.getElementById("submit-button").style.display = "none";
+            document.getElementById("restart-button").style.display = "block";
+        }
+
+        function showIncorrectAnswers(incorrectAnswers) {
+            const quizDiv = document.getElementById("quiz");
+            incorrectAnswers.forEach(incorrect => {
+                const questionDiv = [...quizDiv.children].find(div => div.querySelector("h4").textContent.includes(incorrect.question));
+                const questionAnswer = questionDiv.querySelectorAll("p");
+                questionAnswer.forEach(p => {
+                    if (p.textContent.includes(incorrect.correctAnswer)) {
+                        p.classList.add("incorrect");
+                    }
+                });
+            });
+        }
+
+        function restartQuiz() {
+            loadQuiz();
+            document.getElementById("result").innerHTML = "";
+            document.getElementById("submit-button").style.display = "block";
+            document.getElementById("restart-button").style.display = "none";
+        }
+
+        window.onload = function () {
+            loadQuiz();
+            document.getElementById("submit-button").addEventListener("click", evaluateQuiz);
+            document.getElementById("restart-button").addEventListener("click", restartQuiz);
+            showAnnouncement();
+        };
+
         function showAnnouncement() {
             const announcement = document.getElementById('announcement');
             announcement.classList.add('show');
@@ -115,58 +176,6 @@
                 announcement.classList.remove('show');
             }, 5000);
         }
-
-        // Görev 2: JSON'dan Test Soruları
-        const questions = [
-            { question: "HTML nedir?", choices: ["Bir programlama dili", "Bir işaretleme dili", "Bir stil dili"], answer: "Bir işaretleme dili" },
-            { question: "CSS nedir?", choices: ["Bir işaretleme dili", "Bir stil dili", "Bir veritabanı"], answer: "Bir stil dili" },
-            { question: "JavaScript nedir?", choices: ["Bir programlama dili", "Bir veritabanı", "Bir stil dili"], answer: "Bir programlama dili" }
-        ];
-
-        function loadQuiz() {
-            const quizDiv = document.getElementById("quiz");
-            questions.forEach((q, index) => {
-                const questionDiv = document.createElement("div");
-                questionDiv.className = "quiz-question";
-                questionDiv.innerHTML = `<h4>${index + 1}. ${q.question}</h4>`;
-                q.choices.forEach(choice => {
-                    questionDiv.innerHTML += `<p><input type="radio" name="q${index}"> ${choice}</p>`;
-                });
-                quizDiv.appendChild(questionDiv);
-            });
-        }
-
-        // Görev 3: Canvas ile 10x10 Kare
-        function drawSquares() {
-            const canvas = document.getElementById('canvas');
-            if (canvas.getContext) {
-                const ctx = canvas.getContext('2d');
-                const squareSize = 50;
-                for (let i = 0; i < 10; i++) {
-                    for (let j = 0; j < 10; j++) {
-                        ctx.fillStyle = getRandomColor();
-                        ctx.fillRect(i * squareSize, j * squareSize, squareSize, squareSize);
-                    }
-                }
-            }
-        }
-
-        function getRandomColor() {
-            const letters = '0123456789ABCDEF';
-            let color = '#';
-            for (let i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-
-        // Sayfa yüklendiğinde tüm görevleri çalıştır
-        window.onload = function () {
-            showAnnouncement();
-            loadQuiz();
-            drawSquares();
-        };
     </script>
 </body>
 </html>
-

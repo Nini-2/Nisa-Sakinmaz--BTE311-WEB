@@ -97,12 +97,12 @@
                 data.forEach((q, index) => {
                     const questionElement = document.createElement('div');
                     questionElement.classList.add('mb-3');
-                    questionElement.innerHTML = `
-                        <label>${q.question}</label><br>
-                        ${q.options.map((option, i) => `
-                            <input type="radio" name="q${index}" value="${option}" id="q${index}a${i}">
-                            <label for="q${index}a${i}">${option}</label><br>
-                        `).join('')}
+                    questionElement.innerHTML = 
+                        `<label>${q.question}</label><br>
+                        ${q.options.map((option, i) => 
+                            `<input type="radio" name="q${index}" value="${option}" id="q${index}a${i}">
+                            <label for="q${index}a${i}">${option}</label><br>`
+                        ).join('')}
                     `;
                     quizForm.appendChild(questionElement);
                 });

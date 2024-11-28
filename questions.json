@@ -25,14 +25,14 @@
         "answer": "."
     },
     {
-        "question": "HTML'de bir bağlantı (link) oluşturmak için hangi etiket kullanılır?",
-        "options": ["<link>", "<a>", "<href>", "<url>"],
-        "answer": "<a>"
-    },
-    {
         "question": "JavaScript hangi tür bir dildir?",
         "options": ["Statik", "Dinamik", "Derlenmiş", "İşaretleme"],
         "answer": "Dinamik"
+    },
+    {
+        "question": "HTML'de bir bağlantı (link) oluşturmak için hangi etiket kullanılır?",
+        "options": ["<link>", "<a>", "<href>", "<url>"],
+        "answer": "<a>"
     },
     {
         "question": "HTML'de resim eklemek için hangi etiket kullanılır?",

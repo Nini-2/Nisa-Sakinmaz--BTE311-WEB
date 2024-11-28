@@ -35,10 +35,6 @@
             font-weight: bold;
         }
 
-        .incorrect {
-            color: red; /* Yanlış cevapları belirgin yapmak için */
-        }
-
         button {
             margin-top: 20px;
         }
@@ -59,6 +55,15 @@
             visibility: visible;
             opacity: 1;
         }
+
+        .incorrect {
+            color: red; /* Yanlış cevapları belirgin yapmak için */
+        }
+
+        .correct {
+            color: green; /* Doğru cevapları belirgin yapmak için */
+        }
+
     </style>
 </head>
 <body>
@@ -112,10 +117,10 @@
                         </div>
                         <div class="mb-3">
                             <label>6) HTML'de bir bağlantı (link) oluşturmak için hangi etiket kullanılır?</label><br>
-                            <input type="radio" name="q5" value="<link>"> <link><br>
-                            <input type="radio" name="q5" value="<a>"> <a><br>
-                            <input type="radio" name="q5" value="<href>"> <href><br>
-                            <input type="radio" name="q5" value="<url>"> <url>
+                            <input type="radio" name="q5" value="<link>"> &lt;link&gt;<br>
+                            <input type="radio" name="q5" value="<a>"> &lt;a&gt;<br>
+                            <input type="radio" name="q5" value="<href>"> &lt;href&gt;<br>
+                            <input type="radio" name="q5" value="<url>"> &lt;url&gt;
                         </div>
                         <div class="mb-3">
                             <label>7) JavaScript hangi tür bir dildir?</label><br>
@@ -126,10 +131,10 @@
                         </div>
                         <div class="mb-3">
                             <label>8) HTML'de resim eklemek için hangi etiket kullanılır?</label><br>
-                            <input type="radio" name="q7" value="<img>"> <img><br>
-                            <input type="radio" name="q7" value="<image>"> <image><br>
-                            <input type="radio" name="q7" value="<src>"> <src><br>
-                            <input type="radio" name="q7" value="<picture>"> <picture>
+                            <input type="radio" name="q7" value="<img>"> &lt;img&gt;<br>
+                            <input type="radio" name="q7" value="<image>"> &lt;image&gt;<br>
+                            <input type="radio" name="q7" value="<src>"> &lt;src&gt;<br>
+                            <input type="radio" name="q7" value="<picture>"> &lt;picture&gt;
                         </div>
                         <div class="mb-3">
                             <label>9) Bootstrap hangi amaçla kullanılır?</label><br>
@@ -156,48 +161,50 @@
 
     <!-- JavaScript -->
     <script>
-        const questions = [
-            { question: "HTML nedir?", answer: "Bir işaretleme dili" },
-            { question: "CSS nedir?", answer: "Bir stil dili" },
-            { question: "Bootstrap nedir?", answer: "Bir CSS framework'üdür." },
-            { question: "JavaScript nedir?", answer: "Dinamik bir programlama dilidir." },
-            { question: "CSS'de sınıf seçicisi nasıl tanımlanır?", answer: "." },
-            { question: "HTML'de bir bağlantı (link) oluşturmak için hangi etiket kullanılır?", answer: "<a>" },
-            { question: "JavaScript hangi tür bir dildir?", answer: "Dinamik" },
-            { question: "HTML'de resim eklemek için hangi etiket kullanılır?", answer: "<img>" },
-            { question: "Bootstrap hangi amaçla kullanılır?", answer: "CSS tasarımı ve düzeni" },
-            { question: "JavaScript'te bir fonksiyon nasıl tanımlanır?", answer: "function" },
+        const correctAnswers = [
+            "Bir işaretleme dili",  // Soru 1
+            "Bir stil dili",  // Soru 2
+            "Bir CSS framework'üdür.",  // Soru 3
+            "Dinamik bir programlama dilidir.",  // Soru 4
+            ".",  // Soru 5
+            "<a>",  // Soru 6
+            "Dinamik",  // Soru 7
+            "<img>",  // Soru 8
+            "CSS tasarımı ve düzeni",  // Soru 9
+            "function"  // Soru 10
         ];
 
-        document.getElementById("submit-button").addEventListener("click", () => {
+        document.getElementById('submit-button').onclick = function() {
+            const form = document.getElementById('quiz-form');
+            let result = '';
             let score = 0;
-            const form = document.forms["quiz-form"];
-            questions.forEach((q, index) => {
-                const answer = form[`q${index}`].value;
-                if (answer === q.answer) {
-                    score++;
+            let totalQuestions = 10;
+
+            // Tüm soruları kontrol et
+            for (let i = 0; i < totalQuestions; i++) {
+                const questionName = `q${i}`;
+                const selectedAnswer = form.querySelector(`input[name="${questionName}"]:checked`);
+                const correctAnswer = correctAnswers[i];
+
+                // Yanlış veya boş cevapları işaretle
+                if (selectedAnswer) {
+                    if (selectedAnswer.value === correctAnswer) {
+                        score++;
+                        result += `<p class="correct">Soru ${i + 1}: Doğru!</p>`;
+                    } else {
+                        result += `<p class="incorrect">Soru ${i + 1}: Yanlış! Doğru cevap: ${correctAnswer}</p>`;
+                    }
+                } else {
+                    result += `<p class="incorrect">Soru ${i + 1}: Boş bırakıldı! Doğru cevap: ${correctAnswer}</p>`;
                 }
-            });
-            const resultDiv = document.getElementById("result");
-            resultDiv.innerHTML = `Toplam Doğru: ${score}/${questions.length}`;
-            if (score < questions.length) {
-                resultDiv.innerHTML += `<br><span class="incorrect">Yanlış veya eksik cevaplarınız var!</span>`;
             }
-            document.getElementById("restart-button").style.display = "inline-block";
-        });
 
-        document.getElementById("restart-button").addEventListener("click", () => {
-            document.getElementById("quiz-form").reset();
-            document.getElementById("result").innerHTML = "";
-            document.getElementById("restart-button").style.display = "none";
-        });
+            result += `<p>Toplam Puan: ${score} / ${totalQuestions}</p>`;
+            document.getElementById('result').innerHTML = result;
 
-        // Duyuru
-        const announcement = document.getElementById("announcement");
-        announcement.classList.add("show");
-        setTimeout(() => {
-            announcement.classList.remove("show");
-        }, 5000);
+            // Yeniden deneme butonunu göster
+            document.getElementById('restart-button').style.display = 'inline-block';
+        };
     </script>
 </body>
 </html>

@@ -1,1 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hafta 9 / Görev 3</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f5f5dc; /* Sayfa arka planı */
+      font-family: Arial, sans-serif;
+      text-align: center; /* Sayfa başlığını ortalamak için */
+      margin-top: 50px;
+    }
+    #announcement {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px;
+      background-color: red;
+      color: white;
+      border-radius: 5px;
+      font-weight: bold;
+      display: none;
+      z-index: 9999;
+    }
+    .canvas-container {
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff; /* Kart arka planı */
+      border-radius: 15px; /* Yumuşak köşe */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+      border: 2px solid #ccc; /* Tek çerçeve */
+      max-width: 600px; /* Kart boyutunu sınırla */
+      margin-top: 80px;  /* Başlık ile arayı aç */
+    }
+    .canvas-wrapper {
+      width: 100%;  /* Kart içinde çizimi %100 genişliğe yayıyoruz */
+      height: 600px; /* Çizim alanı yüksekliği */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 15px; /* Yumuşak köşe */
+      overflow: hidden; /* Çizim dışarı taşmasın */
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hafta 9 / Görev 3 - Renkli Kareler</h1>
+
+  <div id="announcement">
+    Duyuru: Sayfa Yenilendi!
+  </div>
+
+  <div class="canvas-container">
+    <div class="canvas-wrapper">
+      <canvas id="canvas" width="500" height="500"></canvas>
+    </div>
+  </div>
+
+  <script>
+    // 100 farklı renk oluşturmak için renkler arasında belirgin farklar olacak
+    const colors = [
+      "#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#0000FF", "#4B0082", "#8B00FF", 
+      "#FF6347", "#FFD700", "#32CD32", "#4682B4", "#8A2BE2", "#A52A2A", "#D2691E", 
+      "#DC143C", "#C71585", "#FF1493", "#FF4500", "#2E8B57", "#A9A9A9", "#DAA520", 
+      "#B22222", "#FF6347", "#7FFF00", "#F0E68C", "#FF00FF", "#FF0000", "#FA8072", 
+      "#FFFFE0", "#FFD700", "#00FA9A", "#00BFFF", "#9932CC", "#FF1493", "#8B0000", 
+      "#BC8F8F", "#556B2F", "#B0C4DE", "#D3D3D3", "#F0F8FF", "#C71585", "#FF6347", 
+      "#7FFFD4", "#D2691E", "#8B4513", "#2F4F4F", "#708090", "#8A2BE2", "#B8860B", 
+      "#006400", "#A52A2A", "#800080", "#FF00FF", "#7CFC00", "#F5FFFA", "#DCDCDC", 
+      "#D3D3D3", "#90EE90", "#FF6347", "#2F4F4F", "#708090", "#00CED1", "#B22222", 
+      "#A9A9A9", "#6A5ACD", "#00008B", "#8B0000", "#3CB371", "#2F4F4F", "#228B22", 
+      "#ADFF2F", "#D2691E", "#000080", "#F0E68C", "#F5F5F5", "#FAFAD2", "#FFD700", 
+      "#F08080", "#8B4513", "#8A2BE2", "#F4A300", "#F0F8FF", "#D2B48C", "#FF7F50", 
+      "#B22222", "#B0C4DE", "#FF6347", "#DAA520", "#FF00FF", "#8B008B", "#7FFF00", 
+      "#FF1493", "#8A2BE2", "#BC8F8F", "#3CB371", "#FF6347", "#D2691E", "#B0E0E6", 
+      "#F0E68C", "#B22222", "#FF6347", "#228B22", "#8B0000", "#FFD700", "#ADFF2F", 
+      "#F4A300", "#DAA520", "#B8860B", "#6A5ACD", "#D3D3D3", "#B0E0E6", "#A52A2A", 
+      "#FF6347", "#FF4500", "#7CFC00", "#00CED1", "#FF1493", "#00BFFF", "#FF00FF", 
+      "#A9A9A9", "#F5FFFA", "#FFFFE0", "#DC143C", "#D2691E", "#C71585", "#FF6347", 
+      "#4682B4"
+    ];
+
+    // Canvas elemanı ve çizim işlemi
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    const rows = 10;  // 10 satır
+    const cols = 10;  // 10 sütun
+    const size = 50;  // Kare boyutunu ayarladım
+
+    // 10x10 kare çizimi
+    let currentColorIndex = 0;
+
+    for (let i = 0; i < rows; i++) {
+      for (let j = 0; j < cols; j++) {
+        let color = colors[currentColorIndex];  // Farklı bir renk seç
+        ctx.fillStyle = color;  // Rengi belirle
+        ctx.fillRect(j * size, i * size, size, size);  // Kareyi çiz
+        ctx.strokeStyle = "#FFFFFF";  // Beyaz çizgi
+        ctx.lineWidth = 1;  // Çizgi kalınlığını azaltarak, sadece dış sınırları çiziyoruz
+        ctx.strokeRect(j * size, i * size, size, size);  // Kareye beyaz sınır ekle
+        currentColorIndex++;
+      }
+    }
+
+    // Sayfa her yenilendiğinde 5 saniye süren bir duyuru göster
+    window.onload = function() {
+      const announcement = document.getElementById('announcement');
+      announcement.style.display = 'block';
+      setTimeout(() => {
+        announcement.style.display = 'none';
+      }, 5000); // 5 saniye sonra duyuru kaybolur
+    };
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
 

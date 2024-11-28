@@ -1,171 +1,144 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hafta 9 - Test Sayfası</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #000; /* Siyah arka plan */
-            color: #fff; /* Beyaz yazılar */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTE311-ÖDEVLER-Nisa Sakınmaz</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff0f5;
+    }
 
-        h1 {
-            text-align: center;
-            margin-top: 20px;
-        }
+    h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
 
-        .card {
-            background-color: #fff; /* Beyaz kart rengi */
-            color: #000; /* Siyah yazılar */
-            border-radius: 10px;
-            margin-bottom: 20px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 50%; /* Kartın genişliği */
-            margin: 0 auto; /* Sayfaya ortalamak için */
-        }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+    }
 
-        .card-header {
-            font-weight: bold;
-        }
+    .mb-3 {
+      margin-bottom: 20px;
+    }
 
-        .result {
-            font-size: 20px;
-            font-weight: bold;
-        }
+    .button-link {
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #68228b;
+      color: white;
+      border-radius: 5px;
+      font-size: 16px;
+      text-align: center;
+      width: 200px;
+      display: block;
+    }
 
-        .incorrect {
-            color: red; /* Yanlış cevapları belirgin yapmak için */
-        }
-
-        button {
-            margin-top: 20px;
-        }
-
-        #announcement {
-            visibility: hidden;
-            opacity: 0;
-            transition: visibility 0s, opacity 0.5s linear;
-            background-color: red; /* Kırmızı arka plan */
-            padding: 15px;
-            text-align: center;
-            color: white;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        #announcement.show {
-            visibility: visible;
-            opacity: 1;
-        }
-    </style>
+    .button-link:hover {
+      background-color: #ff0000;
+    }
+  </style>
 </head>
 <body>
-    <h1>Hafta 9 - Test Sayfası</h1>
 
-    <!-- Duyuru -->
-    <div id="announcement">
-        Bu duyuru 5 saniye sonra otomatik kapanacaktır.
+<h1>BTE311-ÖDEVLER-Nisa Sakınmaz</h1>
+
+<div class="container">
+  <form id="quiz-form">
+    <div class="mb-3">
+      <label>1) HTML nedir?</label><br>
+      <input type="radio" name="q0" value="Bir programlama dili"> Bir programlama dili<br>
+      <input type="radio" name="q0" value="Bir işaretleme dili"> Bir işaretleme dili<br>
+      <input type="radio" name="q0" value="Bir stil dili"> Bir stil dili<br>
+      <input type="radio" name="q0" value="Bir veritabanı"> Bir veritabanı
     </div>
 
-    <div class="container mt-4">
-        <div id="quiz-section">
-            <div class="card">
-                <div class="card-header">10 Soruluk Test</div>
-                <div class="card-body">
-                    <form id="quiz-form">
-                        <!-- Sorular Burada Dinamik Olarak Eklenecek -->
-                    </form>
-                    <button type="button" class="btn btn-success" id="submit-button">Sonuçları Gönder</button>
-                    <div class="result mt-3" id="result"></div>
-                    <button type="button" class="btn btn-primary" id="restart-button" style="display:none;">Yeniden Dene</button>
-                </div>
-            </div>
-        </div>
+    <div class="mb-3">
+      <label>2) CSS nedir?</label><br>
+      <input type="radio" name="q1" value="Bir işaretleme dili"> Bir işaretleme dili<br>
+      <input type="radio" name="q1" value="Bir stil dili"> Bir stil dili<br>
+      <input type="radio" name="q1" value="Bir programlama dili"> Bir programlama dili<br>
+      <input type="radio" name="q1" value="Bir veritabanı"> Bir veritabanı
     </div>
 
-    <!-- JavaScript -->
-    <script>
-        // Soruları JSON dosyasından çekme
-        fetch('questions.json')
-            .then(response => response.json())
-            .then(data => {
-                const quizForm = document.getElementById('quiz-form');
-                data.forEach((q, index) => {
-                    const questionElement = document.createElement('div');
-                    questionElement.classList.add('mb-3');
-                    questionElement.innerHTML = 
-                        `<label>${index + 1}) ${q.question}</label><br>
-                        ${q.options.map((option, i) => 
-                            `<input type="radio" name="q${index}" value="${option}" id="q${index}a${i}">
-                            <label for="q${index}a${i}">${option}</label><br>`
-                        ).join('')}
-                    `;
-                    quizForm.appendChild(questionElement);
-                });
+    <div class="mb-3">
+      <label>3) Bootstrap nedir?</label><br>
+      <input type="radio" name="q2" value="Bir CSS framework'üdür."> Bir CSS framework'üdür.<br>
+      <input type="radio" name="q2" value="Bir programlama dilidir."> Bir programlama dilidir.<br>
+      <input type="radio" name="q2" value="Bir veritabanı yönetim sistemidir."> Bir veritabanı yönetim sistemidir.<br>
+      <input type="radio" name="q2" value="Bir web sunucusudur."> Bir web sunucusudur.
+    </div>
 
-                document.getElementById("submit-button").addEventListener("click", () => {
-                    evaluateQuiz(data);
-                });
+    <div class="mb-3">
+      <label>4) JavaScript nedir?</label><br>
+      <input type="radio" name="q3" value="Bir işaretleme dili"> Bir işaretleme dili<br>
+      <input type="radio" name="q3" value="Bir stil dili"> Bir stil dili<br>
+      <input type="radio" name="q3" value="Dinamik bir programlama dilidir."> Dinamik bir programlama dilidir.<br>
+      <input type="radio" name="q3" value="Statik bir programlama dilidir."> Statik bir programlama dilidir.
+    </div>
 
-                document.getElementById("restart-button").addEventListener("click", () => {
-                    restartQuiz();
-                });
-            });
+    <div class="mb-3">
+      <label>5) CSS'de sınıf seçicisi nasıl tanımlanır?</label><br>
+      <input type="radio" name="q4" value="#"> #<br>
+      <input type="radio" name="q4" value="."> .<br>
+      <input type="radio" name="q4" value="::"> ::<br>
+      <input type="radio" name="q4" value="/"> /
+    </div>
 
-        function evaluateQuiz(questions) {
-            let correct = 0;
-            const resultDiv = document.getElementById("result");
-            let incorrectAnswers = [];
+    <div class="mb-3">
+      <label>6) HTML'de bir bağlantı (link) oluşturmak için hangi etiket kullanılır?</label><br>
+      <input type="radio" name="q5" value="<link>"> &lt;link&gt;<br>
+      <input type="radio" name="q5" value="<a>"> &lt;a&gt;<br>
+      <input type="radio" name="q5" value="<href>"> &lt;href&gt;<br>
+      <input type="radio" name="q5" value="<url>"> &lt;url&gt;
+    </div>
 
-            questions.forEach((q, index) => {
-                const selected = document.querySelector(`input[name="q${index}"]:checked`);
-                if (selected) {
-                    if (selected.value === q.answer) {
-                        correct++;
-                        document.querySelector(`input[name="q${index}"]:checked`).parentElement.style.color = "green";
-                    } else {
-                        document.querySelector(`input[name="q${index}"]:checked`).parentElement.style.color = "black";
-                        incorrectAnswers.push({ question: q.question, correctAnswer: q.answer });
-                        document.querySelectorAll(`input[name="q${index}"]`).forEach((elem) => {
-                            if (elem.value === q.answer) {
-                                elem.parentElement.style.color = "red"; // Yanlış cevaplarda doğru şık kırmızı
-                            }
-                        });
-                    }
-                }
-            });
+    <div class="mb-3">
+      <label>7) JavaScript hangi tür bir dildir?</label><br>
+      <input type="radio" name="q6" value="Statik"> Statik<br>
+      <input type="radio" name="q6" value="Dinamik"> Dinamik<br>
+      <input type="radio" name="q6" value="Derlenmiş"> Derlenmiş<br>
+      <input type="radio" name="q6" value="İşaretleme"> İşaretleme
+    </div>
 
-            resultDiv.innerHTML = `Doğru Sayısı: ${correct} / ${questions.length}`;
-            document.getElementById("submit-button").style.display = "none";
-            document.getElementById("restart-button").style.display = "block";
-        }
+    <div class="mb-3">
+      <label>8) HTML'de resim eklemek için hangi etiket kullanılır?</label><br>
+      <input type="radio" name="q7" value="<img>"> &lt;img&gt;<br>
+      <input type="radio" name="q7" value="<image>"> &lt;image&gt;<br>
+      <input type="radio" name="q7" value="<src>"> &lt;src&gt;<br>
+      <input type="radio" name="q7" value="<picture>"> &lt;picture&gt;
+    </div>
 
-        function restartQuiz() {
-            document.getElementById("quiz-form").reset();
-            document.getElementById("result").innerHTML = "";
-            document.getElementById("submit-button").style.display = "block";
-            document.getElementById("restart-button").style.display = "none";
-            document.querySelectorAll('label').forEach(label => {
-                label.style.color = "black"; // Tüm renkleri tekrar siyah yap
-            });
-        }
+    <div class="mb-3">
+      <label>9) Bootstrap hangi amaçla kullanılır?</label><br>
+      <input type="radio" name="q8" value="Veritabanı yönetimi"> Veritabanı yönetimi<br>
+      <input type="radio" name="q8" value="CSS tasarımı ve düzeni"> CSS tasarımı ve düzeni<br>
+      <input type="radio" name="q8" value="Veri analizi"> Veri analizi<br>
+      <input type="radio" name="q8" value="Sunucu yönetimi"> Sunucu yönetimi
+    </div>
 
-        // Sayfa açıldığında duyuruyu gösterme
-        function showAnnouncement() {
-            const announcement = document.getElementById('announcement');
-            announcement.classList.add('show');
-            setTimeout(() => {
-                announcement.classList.remove('show');
-            }, 5000);
-        }
+    <div class="mb-3">
+      <label>10) JavaScript'te bir fonksiyon nasıl tanımlanır?</label><br>
+      <input type="radio" name="q9" value="function"> function<br>
+      <input type="radio" name="q9" value="func"> func<br>
+      <input type="radio" name="q9" value="def"> def<br>
+      <input type="radio" name="q9" value="method"> method
+    </div>
 
-        window.onload = function () {
-            showAnnouncement();
-        };
-    </script>
+    <button type="submit" class="button-link">Sonuçları Göster</button>
+  </form>
+</div>
+
 </body>
 </html>

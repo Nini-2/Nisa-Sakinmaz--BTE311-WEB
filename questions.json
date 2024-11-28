@@ -1,54 +1,106 @@
-[
+{
+  "questions": [
     {
-        "question": "HTML nedir?",
-        "options": ["Bir programlama dili", "Bir işaretleme dili", "Bir stil dili", "Bir veritabanı"],
-        "answer": "Bir işaretleme dili"
+      "question": "HTML nedir?",
+      "options": [
+        "Bir programlama dili",
+        "Bir işaretleme dili",
+        "Bir stil dili",
+        "Bir veritabanı"
+      ],
+      "correct_answer": "Bir işaretleme dili"
     },
     {
-        "question": "CSS nedir?",
-        "options": ["Bir işaretleme dili", "Bir stil dili", "Bir programlama dili", "Bir veritabanı"],
-        "answer": "Bir stil dili"
+      "question": "CSS nedir?",
+      "options": [
+        "Bir işaretleme dili",
+        "Bir stil dili",
+        "Bir programlama dili",
+        "Bir veritabanı"
+      ],
+      "correct_answer": "Bir stil dili"
     },
     {
-        "question": "Bootstrap nedir?",
-        "options": ["Bir CSS framework'üdür.", "Bir programlama dilidir.", "Bir veritabanı yönetim sistemidir.", "Bir web sunucusudur."],
-        "answer": "Bir CSS framework'üdür."
+      "question": "Bootstrap nedir?",
+      "options": [
+        "Bir CSS framework'üdür.",
+        "Bir programlama dilidir.",
+        "Bir veritabanı yönetim sistemidir.",
+        "Bir web sunucusudur."
+      ],
+      "correct_answer": "Bir CSS framework'üdür."
     },
     {
-        "question": "JavaScript nedir?",
-        "options": ["Bir işaretleme dili", "Bir stil dili", "Dinamik bir programlama dilidir.", "Statik bir programlama dilidir."],
-        "answer": "Dinamik bir programlama dilidir."
+      "question": "JavaScript nedir?",
+      "options": [
+        "Bir işaretleme dili",
+        "Bir stil dili",
+        "Dinamik bir programlama dilidir.",
+        "Statik bir programlama dilidir."
+      ],
+      "correct_answer": "Dinamik bir programlama dilidir."
     },
     {
-        "question": "CSS'de sınıf seçicisi nasıl tanımlanır?",
-        "options": ["#", ".", "::", "/"],
-        "answer": "."
+      "question": "CSS'de sınıf seçicisi nasıl tanımlanır?",
+      "options": [
+        "#",
+        ".",
+        "::",
+        "/"
+      ],
+      "correct_answer": "."
     },
     {
-        "question": "JavaScript hangi tür bir dildir?",
-        "options": ["Statik", "Dinamik", "Derlenmiş", "İşaretleme"],
-        "answer": "Dinamik"
+      "question": "HTML'de bir bağlantı (link) oluşturmak için hangi etiket kullanılır?",
+      "options": [
+        "<link>",
+        "<a>",
+        "<href>",
+        "<url>"
+      ],
+      "correct_answer": "<a>"
     },
     {
-        "question": "HTML'de bir bağlantı (link) oluşturmak için hangi etiket kullanılır?",
-        "options": ["<link>", "<a>", "<href>", "<url>"],
-        "answer": "<a>"
+      "question": "JavaScript hangi tür bir dildir?",
+      "options": [
+        "Statik",
+        "Dinamik",
+        "Derlenmiş",
+        "İşaretleme"
+      ],
+      "correct_answer": "Dinamik"
     },
     {
-        "question": "HTML'de resim eklemek için hangi etiket kullanılır?",
-        "options": ["<img>", "<image>", "<src>", "<picture>"],
-        "answer": "<img>"
+      "question": "HTML'de resim eklemek için hangi etiket kullanılır?",
+      "options": [
+        "<img>",
+        "<image>",
+        "<src>",
+        "<picture>"
+      ],
+      "correct_answer": "<img>"
     },
     {
-        "question": "Bootstrap hangi amaçla kullanılır?",
-        "options": ["Veritabanı yönetimi", "CSS tasarımı ve düzeni", "Veri analizi", "Sunucu yönetimi"],
-        "answer": "CSS tasarımı ve düzeni"
+      "question": "Bootstrap hangi amaçla kullanılır?",
+      "options": [
+        "Veritabanı yönetimi",
+        "CSS tasarımı ve düzeni",
+        "Veri analizi",
+        "Sunucu yönetimi"
+      ],
+      "correct_answer": "CSS tasarımı ve düzeni"
     },
     {
-        "question": "JavaScript'te bir fonksiyon nasıl tanımlanır?",
-        "options": ["function", "func", "def", "method"],
-        "answer": "function"
+      "question": "JavaScript'te bir fonksiyon nasıl tanımlanır?",
+      "options": [
+        "function",
+        "func",
+        "def",
+        "method"
+      ],
+      "correct_answer": "function"
     }
-]
+  ]
+}
 
 

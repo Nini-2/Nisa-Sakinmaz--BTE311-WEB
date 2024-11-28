@@ -64,6 +64,10 @@
             color: green; /* Doğru cevapları belirgin yapmak için */
         }
 
+        .reset-inputs input {
+            color: black; /* Renkleri sıfırlamak için */
+        }
+
     </style>
 </head>
 <body>
@@ -152,32 +156,32 @@
                         </div>
                         <button type="button" class="btn btn-success" id="submit-button">Sonuçları Gönder</button>
                         <div class="result mt-3" id="result"></div>
-                        <button type="button" class="btn btn-primary" id="restart-button" style="display:none;">Yeniden Dene</button>
+                        <button type="button" class="btn btn-primary" id="restart-button" style="display:none;">Tekrar Dene</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript -->
     <script>
         const correctAnswers = [
-            "Bir işaretleme dili",  // Soru 1
-            "Bir stil dili",  // Soru 2
-            "Bir CSS framework'üdür.",  // Soru 3
-            "Dinamik bir programlama dilidir.",  // Soru 4
-            ".",  // Soru 5
-            "<a>",  // Soru 6
-            "Dinamik",  // Soru 7
-            "<img>",  // Soru 8
-            "CSS tasarımı ve düzeni",  // Soru 9
-            "function"  // Soru 10
+            "Bir işaretleme dili", // Soru 1
+            "Bir stil dili", // Soru 2
+            "Bir CSS framework'üdür.", // Soru 3
+            "Dinamik bir programlama dilidir.", // Soru 4
+            ".", // Soru 5
+            "<a>", // Soru 6
+            "Dinamik", // Soru 7
+            "<img>", // Soru 8
+            "CSS tasarımı ve düzeni", // Soru 9
+            "function" // Soru 10
         ];
 
         document.getElementById('submit-button').onclick = function() {
             const form = document.getElementById('quiz-form');
             let result = '';
-            let score = 0;
+            let correctCount = 0;
+            let wrongCount = 0;
             let totalQuestions = 10;
 
             // Tüm soruları kontrol et
@@ -186,24 +190,69 @@
                 const selectedAnswer = form.querySelector(`input[name="${questionName}"]:checked`);
                 const correctAnswer = correctAnswers[i];
 
+                const questionDiv = form.querySelector(`.mb-3:nth-child(${i+1})`);
+                
+                // Şıkları kontrol et ve renkleri ayarla
+                const answers = questionDiv.querySelectorAll('input[type="radio"]');
+                answers.forEach(answer => {
+                    const answerLabel = answer.parentNode;
+                    // Eğer doğru şıksa yeşil, yanlış şıksa kırmızı olacak
+                    if (answer.value === correctAnswer && selectedAnswer && selectedAnswer.value === correctAnswer) {
+                        answerLabel.style.color = "green"; // Doğru cevap yeşil
+                    } else if (answer.value === correctAnswer && (!selectedAnswer || selectedAnswer.value !== correctAnswer)) {
+                        answerLabel.style.color = "red"; // Yanlış cevapta doğru şık kırmızı
+                    } else {
+                        answerLabel.style.color = "black"; // Diğerleri siyah
+                    }
+                });
+
                 // Yanlış veya boş cevapları işaretle
                 if (selectedAnswer) {
                     if (selectedAnswer.value === correctAnswer) {
-                        score++;
-                        result += `<p class="correct">Soru ${i + 1}: Doğru!</p>`;
+                        correctCount++;
                     } else {
-                        result += `<p class="incorrect">Soru ${i + 1}: Yanlış! Doğru cevap: ${correctAnswer}</p>`;
+                        wrongCount++;
                     }
                 } else {
-                    result += `<p class="incorrect">Soru ${i + 1}: Boş bırakıldı! Doğru cevap: ${correctAnswer}</p>`;
+                    wrongCount++;
                 }
             }
 
-            result += `<p>Toplam Puan: ${score} / ${totalQuestions}</p>`;
+            result = `<p>Doğru: ${correctCount} | Yanlış: ${wrongCount}</p>`;
             document.getElementById('result').innerHTML = result;
 
             // Yeniden deneme butonunu göster
             document.getElementById('restart-button').style.display = 'inline-block';
+        };
+
+        // Yeniden deneme butonu
+        document.getElementById('restart-button').onclick = function() {
+            // Formu sıfırla
+            const form = document.getElementById('quiz-form');
+            form.reset();
+
+            // Tüm renkleri sıfırla
+            const answers = form.querySelectorAll('input[type="radio"]');
+            answers.forEach(answer => {
+                const answerLabel = answer.parentNode;
+                answerLabel.style.color = "black"; // Normal renk
+            });
+
+            // Sonuçları sıfırla
+            document.getElementById('result').innerHTML = '';
+            document.getElementById('restart-button').style.display = 'none';
+        };
+
+        // Duyuru otomatik kapanma
+        window.onload = function() {
+            const announcement = document.getElementById("announcement");
+            setTimeout(function() {
+                announcement.classList.add("show");
+            }, 100); // Duyuru hemen görünür olacak
+
+            setTimeout(function() {
+                announcement.classList.remove("show");
+            }, 5000); // 5 saniye sonra duyuru kapanacak
         };
     </script>
 </body>

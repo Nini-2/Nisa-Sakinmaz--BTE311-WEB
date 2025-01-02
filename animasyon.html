@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
             height: 100vh;
             background-color: #f8f8f8;
@@ -20,11 +20,10 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            position: absolute;
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            animation: moveRandom 6s infinite ease-in-out, growAndFade 4s infinite ease-in-out, rotate 8s linear infinite;
         }
 
         .face {
@@ -59,121 +58,66 @@
             transform: translateX(-50%);
         }
 
-        /* Daireler */
+        /* Yukarı aşağı hareket */
         .circle1 {
-            background-color: #FF6347; 
-            animation: move1 8s infinite ease-in-out, colorChange1 6s infinite ease-in-out, growAndFade 4s infinite, rotate 10s infinite linear;
+            background-color: #FF6347;
+            animation: moveUpDown 3s infinite ease-in-out;
         }
 
+        @keyframes moveUpDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-100px); }
+        }
+
+        /* Büyüyüp küçülen ve rengi değişen */
         .circle2 {
-            background-color: #4682B4; 
-            animation: move2 9s infinite ease-in-out, colorChange2 6.5s infinite ease-in-out, growAndFade 3.5s infinite, rotate 9s infinite linear;
+            background-color: #4682B4;
+            animation: growShrink 4s infinite ease-in-out, colorChange 4s infinite ease-in-out;
         }
 
-        .circle3 {
-            background-color: #32CD32; 
-            animation: move3 10s infinite ease-in-out, colorChange3 7s infinite ease-in-out, growAndFade 5s infinite, rotate 8s infinite linear;
+        @keyframes growShrink {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
         }
 
-        .circle4 {
-            background-color: #FFD700; 
-            animation: move4 7.5s infinite ease-in-out, colorChange4 6.8s infinite ease-in-out, growAndFade 4.5s infinite, rotate 7s infinite linear;
-        }
-
-        .circle5 {
-            background-color: #EE82EE; 
-            animation: move5 6.5s infinite ease-in-out, colorChange5 8s infinite ease-in-out, growAndFade 4s infinite, rotate 11s infinite linear;
-        }
-
-        /* Hareket Animasyonları */
-        @keyframes move1 {
-            0% { top: 10%; left: 20%; }
-            25% { top: 40%; left: 70%; }
-            50% { top: 70%; left: 50%; }
-            75% { top: 30%; left: 30%; }
-            100% { top: 10%; left: 20%; }
-        }
-
-        @keyframes move2 {
-            0% { top: 20%; left: 50%; }
-            25% { top: 70%; left: 30%; }
-            50% { top: 40%; left: 10%; }
-            75% { top: 20%; left: 80%; }
-            100% { top: 20%; left: 50%; }
-        }
-
-        @keyframes move3 {
-            0% { top: 50%; left: 20%; }
-            25% { top: 20%; left: 60%; }
-            50% { top: 10%; left: 40%; }
-            75% { top: 70%; left: 80%; }
-            100% { top: 50%; left: 20%; }
-        }
-
-        @keyframes move4 {
-            0% { top: 10%; left: 60%; }
-            25% { top: 40%; left: 40%; }
-            50% { top: 70%; left: 20%; }
-            75% { top: 50%; left: 80%; }
-            100% { top: 10%; left: 60%; }
-        }
-
-        @keyframes move5 {
-            0% { top: 20%; left: 30%; }
-            25% { top: 50%; left: 10%; }
-            50% { top: 80%; left: 60%; }
-            75% { top: 30%; left: 50%; }
-            100% { top: 20%; left: 30%; }
-        }
-
-        /* Renk Değişim Animasyonları */
-        @keyframes colorChange1 {
-            0% { background-color: #FF6347; }
-            50% { background-color: #FF4500; }
-            100% { background-color: #FF6347; }
-        }
-
-        @keyframes colorChange2 {
-            0% { background-color: #4682B4; }
+        @keyframes colorChange {
+            0%, 100% { background-color: #4682B4; }
             50% { background-color: #1E90FF; }
-            100% { background-color: #4682B4; }
         }
 
-        @keyframes colorChange3 {
-            0% { background-color: #32CD32; }
-            50% { background-color: #3CB371; }
-            100% { background-color: #32CD32; }
+        /* Transparan değeri artan ve azalan */
+        .circle3 {
+            background-color: #32CD32;
+            animation: fadeInOut 3s infinite ease-in-out;
         }
 
-        @keyframes colorChange4 {
-            0% { background-color: #FFD700; }
-            50% { background-color: #FFA500; }
-            100% { background-color: #FFD700; }
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
         }
 
-        @keyframes colorChange5 {
-            0% { background-color: #EE82EE; }
-            50% { background-color: #DA70D6; }
-            100% { background-color: #EE82EE; }
+        /* Sağa sola hareket */
+        .circle4 {
+            background-color: #FFD700;
+            animation: moveLeftRight 3s infinite ease-in-out;
         }
 
-       
-        @keyframes blink {
-            0%, 100% { transform: scaleY(1); }
-            50% { transform: scaleY(0.1); }
+        @keyframes moveLeftRight {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(100px); }
         }
 
-       
-        @keyframes changeMouth {
-            0%, 100% { border-radius: 0 0 50px 50px; height: 10px; } /* Gülümseme */
-            50% { border-radius: 50px 50px 0 0; height: 5px; } /* Üzgün ifade */
+        /* Dönen */
+        .circle5 {
+            background-color: #EE82EE;
+            animation: spin 3s infinite linear;
         }
 
-        
-        @keyframes growAndFade {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.6; }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
+
     </style>
 </head>
 <body>
@@ -214,4 +158,3 @@
     </div>
 </body>
 </html>
-

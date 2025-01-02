@@ -13,7 +13,16 @@
             height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 50px; /* Kartları biraz daha aşağıya çekmek için */
         }
 
         .card {
@@ -24,14 +33,15 @@
             justify-content: space-between;
             text-align: center;
             overflow: hidden;
+            background-color: white;
         }
 
         .card-img-top {
+            width: 100%;
             height: 200px;
             object-fit: cover;
             object-position: center;
             border-radius: 10px;
-            width: 100%;
         }
 
         .card-body {
@@ -54,51 +64,69 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive Grid */
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-        }
-
-        /* Responsive Card Sizes */
-        .card {
+        /* Kart Boyutları */
+        .card-1 {
             width: 100%;
-            max-width: 200px;
-            height: 320px;
+            max-width: 220px;
+            height: 340px;
         }
 
+        .card-2 {
+            width: 100%;
+            max-width: 240px;
+            height: 360px;
+        }
+
+        .card-3 {
+            width: 100%;
+            max-width: 260px;
+            height: 380px;
+        }
+
+        .card-4 {
+            width: 100%;
+            max-width: 280px;
+            height: 400px;
+        }
+
+        .card-5 {
+            width: 100%;
+            max-width: 300px;
+            height: 420px;
+        }
+
+        .card-6 {
+            width: 100%;
+            max-width: 320px;
+            height: 440px;
+        }
+
+        /* Responsive Grid */
         @media (min-width: 576px) {
-            .card {
+            .card-1, .card-2 {
                 width: 48%;
-                max-width: 220px;
-                height: 340px;
             }
         }
 
         @media (min-width: 768px) {
-            .card {
+            .card-1, .card-2, .card-3 {
                 width: 30%;
-                max-width: 240px;
-                height: 360px;
             }
         }
 
         @media (min-width: 992px) {
             .card {
                 width: 16%;
-                max-width: 250px;
-                height: 380px;
             }
         }
+
     </style>
 </head>
 <body>
     <div class="container">
         <div class="card-container">
             <!-- Card 1 -->
-            <div class="card">
+            <div class="card card-1">
                 <img src="batman.jpeg" class="card-img-top" alt="Batman">
                 <div class="card-body">
                     <h5 class="card-title">The Dark Knight</h5>
@@ -107,7 +135,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="card">
+            <div class="card card-2">
                 <img src="candle.jpeg" class="card-img-top" alt="Modelleme">
                 <div class="card-body">
                     <h5 class="card-title">3 Boyutlu Modelleme Nedir?</h5>
@@ -116,7 +144,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="card">
+            <div class="card card-3">
                 <img src="lauda.jpeg" class="card-img-top" alt="Niki Lauda">
                 <div class="card-body">
                     <h5 class="card-title">The Phoenix: Niki Lauda</h5>
@@ -125,7 +153,7 @@
             </div>
 
             <!-- Card 4 -->
-            <div class="card">
+            <div class="card card-4">
                 <img src="medusa.jpeg" class="card-img-top" alt="Medusa">
                 <div class="card-body">
                     <h5 class="card-title">Medusa</h5>
@@ -134,7 +162,7 @@
             </div>
 
             <!-- Card 5 -->
-            <div class="card">
+            <div class="card card-5">
                 <img src="tasarım.jpeg" class="card-img-top" alt="Dijital Tasarım">
                 <div class="card-body">
                     <h5 class="card-title">Dijital Tasarım</h5>
@@ -143,7 +171,7 @@
             </div>
 
             <!-- Card 6 -->
-            <div class="card">
+            <div class="card card-6">
                 <img src="tıp.jpeg" class="card-img-top" alt="Tıpta Teknoloji Kullanımı">
                 <div class="card-body">
                     <h5 class="card-title">Tıpta Teknoloji Kullanımı</h5>
@@ -158,5 +186,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-

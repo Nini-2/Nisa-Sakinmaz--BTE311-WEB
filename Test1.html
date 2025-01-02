@@ -38,10 +38,6 @@
             display: block;
             margin-top: 15px;
         }
-        .soru input[type="radio"] {
-            margin-left: 10px; 
-            vertical-align: middle; 
-        }
         button {
             background-color: #FF0400; 
             color: white;
@@ -66,17 +62,32 @@
         function sonucuGoster(event) {
             event.preventDefault();
             
-            
             const urlParams = new URLSearchParams(window.location.search);
             const kullaniciAdi = urlParams.get("isimSoyisim");
 
             let puan = 0;
-            if (document.getElementById("soru1c").checked) puan++;
-            if (document.getElementById("soru2a").checked) puan++;
-            if (document.getElementById("soru3b").checked) puan++;
-            if (document.getElementById("soru4c").checked) puan++;
 
-            document.getElementById("sonuc").innerText = kullaniciAdi + ", Puanınız: " + puan + "/4";
+         
+            if (document.getElementById("soru1c").checked) puan++;
+
+           
+            const soru2Cevap = document.getElementById("soru2").value;
+            if (soru2Cevap === "a") puan++;
+
+        
+            const soru3Cevap = document.getElementById("soru3").value;
+            if (soru3Cevap.toLowerCase() === "html") puan++;
+
+          
+            const soru4Secimler = document.querySelectorAll('input[name="soru4"]:checked');
+            if (soru4Secimler.length === 2 && 
+                document.getElementById("soru4a").checked &&
+                document.getElementById("soru4d").checked) {
+                puan++;
+            }
+
+          
+            document.getElementById("sonuc").innerText = (kullaniciAdi ? kullaniciAdi + ", " : "") + "Puanınız: " + puan + "/4 doğru cevap verdiniz.";
         }
     </script>
 </head>
@@ -87,64 +98,48 @@
             <div class="soru">
                 <label>Soru 1: HTML nedir?</label>
                 <label for="soru1a">a) Hyper Tool Markup Language
-                    <input type="radio" id="soru1a" name="soru1" value="a" style="margin-left: 10px;">
+                    <input type="radio" id="soru1a" name="soru1" value="a">
                 </label>
                 <label for="soru1b">b) High Text Marking Language
-                    <input type="radio" id="soru1b" name="soru1" value="b" style="margin-left: 10px;">
+                    <input type="radio" id="soru1b" name="soru1" value="b">
                 </label>
                 <label for="soru1c">c) Hypertext Markup Language
-                    <input type="radio" id="soru1c" name="soru1" value="c" style="margin-left: 10px;">
+                    <input type="radio" id="soru1c" name="soru1" value="c">
                 </label>
                 <label for="soru1d">d) Hypertext Multi Language
-                    <input type="radio" id="soru1d" name="soru1" value="d" style="margin-left: 10px;">
+                    <input type="radio" id="soru1d" name="soru1" value="d">
                 </label>
             </div>
 
             <div class="soru">
                 <label>Soru 2: CSS ne amaçla kullanılır?</label>
-                <label for="soru2a">a) Web sayfası tasarımını düzenlemek
-                    <input type="radio" id="soru2a" name="soru2" value="a" style="margin-left: 10px;">
-                </label>
-                <label for="soru2b">b) Veritabanı bağlantısı kurmak
-                    <input type="radio" id="soru2b" name="soru2" value="b" style="margin-left: 10px;">
-                </label>
-                <label for="soru2c">c) Sunucu yönetimi yapmak
-                    <input type="radio" id="soru2c" name="soru2" value="c" style="margin-left: 10px;">
-                </label>
-                <label for="soru2d">d) Web sayfasındaki verileri analiz etmek
-                    <input type="radio" id="soru2d" name="soru2" value="d" style="margin-left: 10px;">
-                </label>
+                <select id="soru2">
+                    <option value="">Seçiniz</option>
+                    <option value="a">Web sayfası tasarımını düzenlemek</option>
+                    <option value="b">Veritabanı bağlantısı kurmak</option>
+                    <option value="c">Sunucu yönetimi yapmak</option>
+                    <option value="d">Web sayfasındaki verileri analiz etmek</option>
+                </select>
             </div>
 
             <div class="soru">
-                <label>Soru 3: HTML'de link oluşturmak için hangi etiket kullanılır?</label>
-                <label for="soru3a">a) &lt;img&gt;
-                    <input type="radio" id="soru3a" name="soru3" value="a" style="margin-left: 10px;">
-                </label>
-                <label for="soru3b">b) &lt;a&gt;
-                    <input type="radio" id="soru3b" name="soru3" value="b" style="margin-left: 10px;">
-                </label>
-                <label for="soru3c">c) &lt;link&gt;
-                    <input type="radio" id="soru3c" name="soru3" value="c" style="margin-left: 10px;">
-                </label>
-                <label for="soru3d">d) &lt;href&gt;
-                    <input type="radio" id="soru3d" name="soru3" value="d" style="margin-left: 10px;">
-                </label>
+                <label>Soru 3: HTML hangi anlama gelir?</label>
+                <input type="text" id="soru3" placeholder="Cevabınızı yazınız">
             </div>
 
             <div class="soru">
-                <label>Soru 4: Hangi HTML etiketi başlıkları tanımlar?</label>
-                <label for="soru4a">a) &lt;p&gt;
-                    <input type="radio" id="soru4a" name="soru4" value="a" style="margin-left: 10px;">
+                <label>Soru 4: HTML'de hangi etiketler başlık tanımlar? (Birden fazla seçebilirsiniz)</label>
+                <label for="soru4a">a) &lt;h1&gt;
+                    <input type="checkbox" id="soru4a" name="soru4" value="a">
                 </label>
                 <label for="soru4b">b) &lt;title&gt;
-                    <input type="radio" id="soru4b" name="soru4" value="b" style="margin-left: 10px;">
+                    <input type="checkbox" id="soru4b" name="soru4" value="b">
                 </label>
-                <label for="soru4c">c) &lt;h1&gt;
-                    <input type="radio" id="soru4c" name="soru4" value="c" style="margin-left: 10px;">
+                <label for="soru4c">c) &lt;p&gt;
+                    <input type="checkbox" id="soru4c" name="soru4" value="c">
                 </label>
-                <label for="soru4d">d) &lt;header&gt;
-                    <input type="radio" id="soru4d" name="soru4" value="d" style="margin-left: 10px;">
+                <label for="soru4d">d) &lt;h2&gt;
+                    <input type="checkbox" id="soru4d" name="soru4" value="d">
                 </label>
             </div>
 

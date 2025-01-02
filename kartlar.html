@@ -3,46 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap</title>
+    <title>Responsive Bootstrap Cards</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #ffdace;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            padding: 20px;
         }
 
-       
         .card {
             border-radius: 15px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-            background-color: white;
-            overflow: hidden;
-            text-align: justify;
         }
 
         .card-img-top {
             height: 150px;
             object-fit: cover;
-            object-position: center bottom;
-            margin-bottom: 10px;
             border-radius: 10px;
-        }
-
-        
-        .card-img-top[data-type="candle"] {
-            object-position: center; 
-        }
-        .card-img-top[data-type="tıp"] {
-            object-position: center top; 
         }
 
         .card-title {
@@ -60,70 +38,70 @@
             border-radius: 5px;
             font-size: 0.9rem;
         }
-
-      
-        .card-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 30px;
-            flex-wrap: nowrap;
-        }
     </style>
 </head>
 <body>
-    <div class="container card-container">
-       
-        <div class="card" style="width: 200px; height: 320px;">
-            <img src="batman.jpeg" class="card-img-top" alt="Batman">
-            <div class="card-body">
-                <h5 class="card-title">The Dark Knight</h5>
-                <a href="#" class="btn-info-link">More Info</a>
+    <div class="container">
+        <div class="row">
+         
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card">
+                    <img src="batman.jpeg" class="card-img-top" alt="Batman">
+                    <div class="card-body">
+                        <h5 class="card-title">The Dark Knight</h5>
+                        <a href="#" class="btn-info-link">More Info</a>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-    
-        <div class="card" style="width: 220px; height: 340px;">
-            <img src="candle.jpeg" class="card-img-top" data-type="candle" alt="Modelleme">
-            <div class="card-body">
-                <h5 class="card-title">3 Boyutlu Modelleme Nedir?</h5>
-                <a href="#" class="btn-info-link">More Info</a>
-            </div>
-        </div>
 
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card">
+                    <img src="candle.jpeg" class="card-img-top" alt="Modelleme">
+                    <div class="card-body">
+                        <h5 class="card-title">3 Boyutlu Modelleme Nedir?</h5>
+                        <a href="#" class="btn-info-link">More Info</a>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card">
+                    <img src="lauda.jpeg" class="card-img-top" alt="Niki Lauda">
+                    <div class="card-body">
+                        <h5 class="card-title">The Phoenix: Niki Lauda</h5>
+                        <a href="#" class="btn-info-link">More Info</a>
+                    </div>
+                </div>
+            </div>
       
-        <div class="card" style="width: 240px; height: 360px;">
-            <img src="lauda.jpeg" class="card-img-top" alt="Niki Lauda">
-            <div class="card-body">
-                <h5 class="card-title">The Phoenix: Niki Lauda</h5>
-                <a href="#" class="btn-info-link">More Info</a>
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card">
+                    <img src="medusa.jpeg" class="card-img-top" alt="Medusa">
+                    <div class="card-body">
+                        <h5 class="card-title">Medusa</h5>
+                        <a href="#" class="btn-info-link">More Info</a>
+                    </div>
+                </div>
             </div>
-        </div>
-
-      
-        <div class="card" style="width: 210px; height: 340px;">
-            <img src="medusa.jpeg" class="card-img-top" alt="Medusa">
-            <div class="card-body">
-                <h5 class="card-title">Medusa</h5>
-                <a href="#" class="btn-info-link">More Info</a>
+          
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card">
+                    <img src="tasarım.jpeg" class="card-img-top" alt="Dijital Tasarım">
+                    <div class="card-body">
+                        <h5 class="card-title">Dijital Tasarım</h5>
+                        <a href="#" class="btn-info-link">More Info</a>
+                    </div>
+                </div>
             </div>
-        </div>
-
-       
-        <div class="card" style="width: 230px; height: 360px;">
-            <img src="tasarım.jpeg" class="card-img-top" alt="Dijital Tasarım">
-            <div class="card-body">
-                <h5 class="card-title">Dijital Tasarım</h5>
-                <a href="#" class="btn-info-link">More Info</a>
-            </div>
-        </div>
-
-      
-        <div class="card" style="width: 250px; height: 380px;">
-            <img src="tıp.jpeg" class="card-img-top" data-type="tıp" alt="Tıpta Teknoloji Kullanımı">
-            <div class="card-body">
-                <h5 class="card-title">Tıpta Teknoloji Kullanımı</h5>
-                <a href="#" class="btn-info-link">More Info</a>
+           
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card">
+                    <img src="tıp.jpeg" class="card-img-top" alt="Tıpta Teknoloji Kullanımı">
+                    <div class="card-body">
+                        <h5 class="card-title">Tıpta Teknoloji Kullanımı</h5>
+                        <a href="#" class="btn-info-link">More Info</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -60,27 +60,120 @@
             text-decoration: underline; 
             cursor: pointer;
         }
+        .login-section, .register-section, .forgot-password-section {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .link {
+            font-size: 14px;
+            color: #0066cc;
+            cursor: pointer;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Üyelik Formu</h2>
-        <form action="test.html" method="GET">
-            <label for="isimSoyisim">İsim Soyisim:</label>
-            <input type="text" id="isimSoyisim" name="isimSoyisim" required>
+        <h2>Üyelik Sistemi</h2>
 
-            <label for="ogrenciNo">Öğrenci Numarası:</label>
-            <input type="number" id="ogrenciNo" name="ogrenciNo" required>
+        
+        <div class="initial-buttons">
+            <button class="bottom-button" onclick="toggleForm('register')">Kayıt Ol</button>
+            <button class="bottom-button" onclick="toggleForm('login')">Giriş Yap</button>
+        </div>
 
-            <label for="sinif">Sınıf:</label>
-            <input type="number" id="sinif" name="sinif" min="1" max="12" required>
+     
+        <div class="register-section" id="registerForm">
+            <h2>Kayıt Ol</h2>
+            <form action="test.html" method="GET">
+                <label for="isimSoyisim">İsim Soyisim:</label>
+                <input type="text" id="isimSoyisim" name="isimSoyisim" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+                <label for="ogrenciNo">Öğrenci Numarası:</label>
+                <input type="number" id="ogrenciNo" name="ogrenciNo" required>
 
-            <button type="submit">Gönder ve Teste Başla</button>
-        </form>
-        <div class="forgot-password">Şifreni mi unuttun?</div> 
+                <label for="sinif">Sınıf:</label>
+                <input type="number" id="sinif" name="sinif" min="1" max="12" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <button class="bottom-button" type="submit">Gönder ve Teste Başla</button>
+            </form>
+            <div class="link" onclick="toggleForm('login')">Zaten üye misiniz? Giriş yapın</div>
+        </div>
+
+        
+        <div class="login-section" id="loginForm">
+            <h2>Giriş Yap</h2>
+            <form action="login.html" method="POST">
+                <label for="username">Kullanıcı Adı:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="loginPassword">Şifre:</label>
+                <input type="password" id="loginPassword" name="loginPassword" required>
+
+                <button class="bottom-button" type="submit">Giriş Yap</button>
+            </form>
+            <div class="forgot-password" onclick="toggleForgotPassword()">Şifreni mi unuttun?</div>
+            <div class="link" onclick="toggleForm('register')">Üye değil misiniz? Üye olun</div>
+        </div>
+
+    
+        <div class="forgot-password-section" id="forgotPasswordForm">
+            <h2>Şifremi Unuttum</h2>
+            <form action="reset-password.html" method="POST">
+                <label for="forgotEmail">Email:</label>
+                <input type="email" id="forgotEmail" name="forgotEmail" required>
+                <button class="bottom-button" type="submit">Şifremi Gönder</button>
+            </form>
+            <div class="link" onclick="toggleForgotPassword()">Geri dön</div>
+        </div>
     </div>
+
+    <script>
+       
+        document.querySelector('.initial-buttons').style.display = 'block';
+
+        
+        function toggleForm(form) {
+       
+            const registerForm = document.getElementById('registerForm');
+            const loginForm = document.getElementById('loginForm');
+            const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+            const initialButtons = document.querySelector('.initial-buttons');
+
+           
+            registerForm.style.display = "none";
+            loginForm.style.display = "none";
+            forgotPasswordForm.style.display = "none";
+
+         
+            initialButtons.style.display = "none";
+
+            if (form === 'register') {
+                registerForm.style.display = "block";  
+            } else if (form === 'login') {
+                loginForm.style.display = "block";  
+            }
+        }
+
+        function toggleForgotPassword() {
+            const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+            const loginForm = document.getElementById('loginForm');
+
+            if (forgotPasswordForm.style.display === "block") {
+                forgotPasswordForm.style.display = "none";
+                loginForm.style.display = "block";
+            } else {
+                forgotPasswordForm.style.display = "block";
+                loginForm.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>

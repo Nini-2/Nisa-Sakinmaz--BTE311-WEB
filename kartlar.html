@@ -9,43 +9,39 @@
         body {
             background-color: #ffdace;
             margin: 0;
-            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
             height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-            margin-top: 50px; /* Kartları biraz daha aşağıya çekmek için */
+            padding-top: 50px; 
         }
 
         .card {
             border-radius: 15px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            text-align: center;
-            overflow: hidden;
             background-color: white;
+            overflow: hidden;
+            text-align: justify;
         }
 
         .card-img-top {
-            width: 100%;
-            height: 200px;
+            height: 150px;
             object-fit: cover;
-            object-position: center;
+            object-position: center bottom;
+            margin-bottom: 10px;
             border-radius: 10px;
         }
 
-        .card-body {
-            padding: 10px;
+        .card-img-top[data-type="candle"] {
+            object-position: center;
+        }
+
+        .card-img-top[data-type="tıp"] {
+            object-position: center top;
         }
 
         .card-title {
@@ -64,44 +60,51 @@
             font-size: 0.9rem;
         }
 
-        /* Kart Boyutları */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+
         .card-1 {
             width: 100%;
-            max-width: 220px;
+            max-width: 200px;
             height: 320px;
         }
 
         .card-2 {
             width: 100%;
-            max-width: 240px;
-            height: 350px;
+            max-width: 220px;
+            height: 340px;
         }
 
         .card-3 {
             width: 100%;
-            max-width: 260px;
-            height: 380px;
+            max-width: 240px;
+            height: 360px;
         }
 
         .card-4 {
             width: 100%;
-            max-width: 280px;
-            height: 400px;
+            max-width: 210px;
+            height: 340px;
         }
 
         .card-5 {
             width: 100%;
-            max-width: 300px;
-            height: 430px;
+            max-width: 230px;
+            height: 360px;
         }
 
         .card-6 {
             width: 100%;
-            max-width: 320px;
-            height: 450px;
+            max-width: 250px;
+            height: 380px;
         }
 
-        /* Responsive Grid */
         @media (min-width: 576px) {
             .card-1, .card-2 {
                 width: 48%;
@@ -115,7 +118,7 @@
         }
 
         @media (min-width: 992px) {
-            .card {
+            .card-1, .card-2, .card-3, .card-4, .card-5, .card-6 {
                 width: 16%;
             }
         }
@@ -123,60 +126,58 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card-container">
-            <!-- Card 1 -->
-            <div class="card card-1">
-                <img src="batman.jpeg" class="card-img-top" alt="Batman">
-                <div class="card-body">
-                    <h5 class="card-title">The Dark Knight</h5>
-                    <a href="#" class="btn-info-link">More Info</a>
-                </div>
+    <div class="container card-container">
+       
+        <div class="card card-1">
+            <img src="batman.jpeg" class="card-img-top" alt="Batman">
+            <div class="card-body">
+                <h5 class="card-title">The Dark Knight</h5>
+                <a href="#" class="btn-info-link">More Info</a>
             </div>
+        </div>
 
-            <!-- Card 2 -->
-            <div class="card card-2">
-                <img src="candle.jpeg" class="card-img-top" alt="Modelleme">
-                <div class="card-body">
-                    <h5 class="card-title">3 Boyutlu Modelleme Nedir?</h5>
-                    <a href="#" class="btn-info-link">More Info</a>
-                </div>
+      
+        <div class="card card-2">
+            <img src="candle.jpeg" class="card-img-top" data-type="candle" alt="Modelleme">
+            <div class="card-body">
+                <h5 class="card-title">3 Boyutlu Modelleme Nedir?</h5>
+                <a href="#" class="btn-info-link">More Info</a>
             </div>
+        </div>
 
-            <!-- Card 3 -->
-            <div class="card card-3">
-                <img src="lauda.jpeg" class="card-img-top" alt="Niki Lauda">
-                <div class="card-body">
-                    <h5 class="card-title">The Phoenix: Niki Lauda</h5>
-                    <a href="#" class="btn-info-link">More Info</a>
-                </div>
+      
+        <div class="card card-3">
+            <img src="lauda.jpeg" class="card-img-top" alt="Niki Lauda">
+            <div class="card-body">
+                <h5 class="card-title">The Phoenix: Niki Lauda</h5>
+                <a href="#" class="btn-info-link">More Info</a>
             </div>
+        </div>
 
-            <!-- Card 4 -->
-            <div class="card card-4">
-                <img src="medusa.jpeg" class="card-img-top" alt="Medusa">
-                <div class="card-body">
-                    <h5 class="card-title">Medusa</h5>
-                    <a href="#" class="btn-info-link">More Info</a>
-                </div>
+    
+        <div class="card card-4">
+            <img src="medusa.jpeg" class="card-img-top" alt="Medusa">
+            <div class="card-body">
+                <h5 class="card-title">Medusa</h5>
+                <a href="#" class="btn-info-link">More Info</a>
             </div>
+        </div>
 
-            <!-- Card 5 -->
-            <div class="card card-5">
-                <img src="tasarım.jpeg" class="card-img-top" alt="Dijital Tasarım">
-                <div class="card-body">
-                    <h5 class="card-title">Dijital Tasarım</h5>
-                    <a href="#" class="btn-info-link">More Info</a>
-                </div>
+       
+        <div class="card card-5">
+            <img src="tasarım.jpeg" class="card-img-top" alt="Dijital Tasarım">
+            <div class="card-body">
+                <h5 class="card-title">Dijital Tasarım</h5>
+                <a href="#" class="btn-info-link">More Info</a>
             </div>
+        </div>
 
-            <!-- Card 6 -->
-            <div class="card card-6">
-                <img src="tıp.jpeg" class="card-img-top" alt="Tıpta Teknoloji Kullanımı">
-                <div class="card-body">
-                    <h5 class="card-title">Tıpta Teknoloji Kullanımı</h5>
-                    <a href="#" class="btn-info-link">More Info</a>
-                </div>
+        
+        <div class="card card-6">
+            <img src="tıp.jpeg" class="card-img-top" data-type="tıp" alt="Tıpta Teknoloji Kullanımı">
+            <div class="card-body">
+                <h5 class="card-title">Tıpta Teknoloji Kullanımı</h5>
+                <a href="#" class="btn-info-link">More Info</a>
             </div>
         </div>
     </div>
@@ -186,3 +187,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+

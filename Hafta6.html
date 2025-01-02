@@ -12,7 +12,7 @@
         }
 
         body {
-            background-color: #f0f0f0; 
+            background-color: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -21,8 +21,9 @@
         }
 
         .container {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-rows: 80px 150px 100px 80px;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 20px;
             width: 90%;
             max-width: 1000px;
@@ -30,99 +31,83 @@
         }
 
         .a {
-            background-color: #191970; 
-            height: 80px; 
-            text-align: center;
+            background-color: #191970;
+            grid-column: 1 / span 3;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
             font-weight: bold;
-            color: #ffffff; 
-            border-radius: 8px;
-        }
-
-        .row {
-            display: flex;
-            gap: 20px;
+            color: #ffffff;
+            border: 2px solid #191970;
         }
 
         .b {
-            background-color: #cd1076; 
-            flex: 1;
-            height: 150px; 
+            background-color: #cd1076;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
             font-weight: bold;
-            color: #ffffff; 
-            border-radius: 8px;
+            color: #ffffff;
+            border: 2px solid #cd1076;
         }
 
         .c {
-            background-color: #ffe413; 
-            flex: 1;
-            height: 150px; 
+            background-color: #ffe413;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
             font-weight: bold;
-            color: #ffffff; 
-            border-radius: 8px;
+            color: #000000;
+            border: 2px solid #ffe413;
         }
 
         .d {
             background-color: #cd0000;
-            flex: 1;
-            height: 150px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
             font-weight: bold;
-            color: #ffffff; 
-            border-radius: 8px;
+            color: #ffffff;
+            border: 2px solid #cd0000;
         }
 
         .e {
-            background-color: #006400; 
-            height: 100px; 
+            background-color: #006400;
+            grid-column: 1 / span 2;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
             font-weight: bold;
-            color: #ffffff; 
-            border-radius: 8px;
-            flex: 2; 
+            color: #ffffff;
+            border: 2px solid #006400;
         }
 
         .f {
-            background-color: #00eeee; 
-            height: 100px; 
+            background-color: #00eeee;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
             font-weight: bold;
-            color: #ffffff;  */
-            border-radius: 8px;
-            flex: 1; 
+            color: #ffffff;
+            border: 2px solid #00eeee;
         }
 
         .g {
             background-color: #68228b;
-            height: 80px;
-            text-align: center;
+            grid-column: 1 / span 3;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
             font-weight: bold;
-            color: #ffffff; 
-            border-radius: 8px;
+            color: #ffffff;
+            border: 2px solid #68228b;
         }
     </style>
 </head>
@@ -130,15 +115,11 @@
 
 <div class="container">
     <div class="a">A</div>
-    <div class="row">
-        <div class="b">B</div>
-        <div class="c">C</div>
-        <div class="d">D</div>
-    </div>
-    <div class="row">
-        <div class="e">E</div>
-        <div class="f">F</div>
-    </div>
+    <div class="b">B</div>
+    <div class="c">C</div>
+    <div class="d">D</div>
+    <div class="e">E</div>
+    <div class="f">F</div>
     <div class="g">G</div>
 </div>
 

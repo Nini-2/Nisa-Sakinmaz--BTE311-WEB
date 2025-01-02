@@ -9,7 +9,11 @@
         body {
             background-color: #ffdace;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .card {
@@ -23,11 +27,15 @@
         }
 
         .card-img-top {
-            height: 150px;
+            height: 200px;
             object-fit: cover;
             object-position: center;
-            margin-bottom: 10px;
             border-radius: 10px;
+            width: 100%;
+        }
+
+        .card-body {
+            padding: 10px;
         }
 
         .card-title {
@@ -46,36 +54,41 @@
             font-size: 0.9rem;
         }
 
-       
+        /* Responsive Grid */
         .card-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
             gap: 30px;
+            justify-content: center;
         }
 
-       
+        /* Responsive Card Sizes */
         .card {
-            width: 200px;
+            width: 100%;
+            max-width: 200px;
             height: 320px;
         }
 
-       
         @media (min-width: 576px) {
             .card {
-                width: 220px;
+                width: 48%;
+                max-width: 220px;
                 height: 340px;
             }
         }
+
         @media (min-width: 768px) {
             .card {
-                width: 240px;
+                width: 30%;
+                max-width: 240px;
                 height: 360px;
             }
         }
+
         @media (min-width: 992px) {
             .card {
-                width: 250px;
+                width: 16%;
+                max-width: 250px;
                 height: 380px;
             }
         }
@@ -84,7 +97,7 @@
 <body>
     <div class="container">
         <div class="card-container">
-      
+            <!-- Card 1 -->
             <div class="card">
                 <img src="batman.jpeg" class="card-img-top" alt="Batman">
                 <div class="card-body">
@@ -93,7 +106,7 @@
                 </div>
             </div>
 
-        
+            <!-- Card 2 -->
             <div class="card">
                 <img src="candle.jpeg" class="card-img-top" alt="Modelleme">
                 <div class="card-body">
@@ -102,7 +115,7 @@
                 </div>
             </div>
 
-       
+            <!-- Card 3 -->
             <div class="card">
                 <img src="lauda.jpeg" class="card-img-top" alt="Niki Lauda">
                 <div class="card-body">
@@ -111,7 +124,7 @@
                 </div>
             </div>
 
-          
+            <!-- Card 4 -->
             <div class="card">
                 <img src="medusa.jpeg" class="card-img-top" alt="Medusa">
                 <div class="card-body">
@@ -120,7 +133,7 @@
                 </div>
             </div>
 
-           
+            <!-- Card 5 -->
             <div class="card">
                 <img src="tasarım.jpeg" class="card-img-top" alt="Dijital Tasarım">
                 <div class="card-body">
@@ -129,7 +142,7 @@
                 </div>
             </div>
 
-            
+            <!-- Card 6 -->
             <div class="card">
                 <img src="tıp.jpeg" class="card-img-top" alt="Tıpta Teknoloji Kullanımı">
                 <div class="card-body">
@@ -145,4 +158,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
 
